@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-warm); margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .swatch { border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.10); flex: 1; min-width: 100px; }
+  .chip { height: 72px; }
+  .info { background: white; padding: 8px 10px; }
+  .name { font-size: 11px; font-weight: 700; color: #303442; text-transform: uppercase; letter-spacing: 0.06em; }
+  .hex  { font-size: 11px; color: #9295A1; font-family: monospace; margin-top: 2px; }
+  .label { font-size: 10px; color: #9295A1; margin-top: 1px; }
+  .accent-bar { height: 4px; background: linear-gradient(90deg, #D17400, #E17100); border-radius: 2px; margin-bottom: 14px; }
+  .usage-note { font-size: 10px; font-family: Arial, sans-serif; color: #9295A1; background: #fff; border-radius: 4px; padding: 6px 10px; margin-bottom: 12px; border-left: 3px solid #D17400; }
+  .swatch.primary-cta .chip::after { content: 'PRIMARY CTA'; position: absolute; bottom: 6px; left: 6px; font-size: 8px; font-weight: 700; letter-spacing: 0.08em; background: #2C4A67; color: #fff; padding: 2px 6px; border-radius: 2px; }
+  .swatch.primary-cta .chip { position: relative; }
+</style>
+</head>
+<body>
+<div class="accent-bar"></div>
+<div class="usage-note">⚠ Burnt Orange is a <strong>sparing accent</strong> — approved for: 4px accent bar, eyebrow labels, inline text links, one accent CTA per section. Not for large fills, overlays, or buttons.</div>
+<div class="row">
+  <div class="swatch primary-cta">
+    <div class="chip" style="background:#2C4A67;"></div>
+    <div class="info"><div class="name">Steel Blue</div><div class="hex">#2C4A67</div><div class="label">--brand-primary · Primary CTA</div></div>
+  </div>
+  <div class="swatch">
+    <div class="chip" style="background:#50717A;"></div>
+    <div class="info"><div class="name">Muted Teal</div><div class="hex">#50717A</div><div class="label">--brand-secondary</div></div>
+  </div>
+  <div class="swatch">
+    <div class="chip" style="background:#354B51;"></div>
+    <div class="info"><div class="name">Dark Teal</div><div class="hex">#354B51</div><div class="label">--brand-secondary-dark</div></div>
+  </div>
+  <div class="swatch">
+    <div class="chip" style="background:#D17400;"></div>
+    <div class="info"><div class="name">Burnt Orange</div><div class="hex">#D17400</div><div class="label">--accent · SPARING only</div></div>
+  </div>
+  <div class="swatch">
+    <div class="chip" style="background:#E17100;"></div>
+    <div class="info"><div class="name">Bright Orange</div><div class="hex">#E17100</div><div class="label">--accent-bright · SPARING only</div></div>
+  </div>
+  <div class="swatch">
+    <div class="chip" style="background:#D50000;"></div>
+    <div class="info"><div class="name">Alert Red</div><div class="hex">#D50000</div><div class="label">--alert-red</div></div>
+  </div>
+  <div class="swatch">
+    <div class="chip" style="background:#0AA29E;"></div>
+    <div class="info"><div class="name">Success</div><div class="hex">#0AA29E</div><div class="label">--success-green</div></div>
+  </div>
+</div>
+</body>
+</html>

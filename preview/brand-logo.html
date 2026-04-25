@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: #FFFFFF; margin: 0; padding: 40px; font-family: Arial, sans-serif; }
+  .row { display: flex; gap: 16px; align-items: stretch; flex-wrap: wrap; }
+  .logo-card { border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-card); flex: 1; min-width: 260px; max-width: 520px; border: 1px solid var(--neutral-300); }
+  .logo-bg { padding: 64px 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 220px; background: #FFFFFF; }
+  img { max-width: 240px; height: auto; display: block; }
+  .card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--neutral-500); margin-top: 28px; text-align: center; }
+  .card-hex { font-family: monospace; font-size: 10px; color: var(--neutral-500); opacity: 0.7; margin-top: 2px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="row">
+  <div class="logo-card">
+    <div class="logo-bg">
+      <img src="../assets/logo-dark.png" alt="Chateau Health &amp; Wellness logo">
+      <div class="card-label">Light background</div>
+      <div class="card-hex">#FFFFFF</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

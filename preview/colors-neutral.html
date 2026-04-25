@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { background: var(--bg-warm); margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  .swatch { border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.10); flex: 1; min-width: 80px; }
+  .chip { height: 56px; }
+  .info { background: white; padding: 6px 8px; }
+  .name { font-size: 10px; font-weight: 700; color: #303442; text-transform: uppercase; letter-spacing: 0.06em; }
+  .hex  { font-size: 10px; color: #9295A1; font-family: monospace; margin-top: 1px; }
+  .label { font-size: 9px; color: #C2C5D0; }
+  h3 { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #9295A1; margin: 0 0 6px; }
+</style>
+</head>
+<body>
+<h3>Text & Ink</h3>
+<div class="row">
+  <div class="swatch"><div class="chip" style="background:#181A21;"></div><div class="info"><div class="name">950</div><div class="hex">#181A21</div><div class="label">Footer bg</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#303442;"></div><div class="info"><div class="name">900</div><div class="hex">#303442</div><div class="label">Headings</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#626571;"></div><div class="info"><div class="name">700</div><div class="hex">#626571</div><div class="label">Body</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#9295A1;"></div><div class="info"><div class="name">500</div><div class="hex">#9295A1</div><div class="label">Muted</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#C2C5D0; border: 1px solid #e4e0d8;"></div><div class="info"><div class="name">300</div><div class="hex">#C2C5D0</div><div class="label">Borders</div></div></div>
+</div>
+<h3>Backgrounds</h3>
+<div class="row">
+  <div class="swatch"><div class="chip" style="background:#FAFAF9; border:1px solid #e4e0d8;"></div><div class="info"><div class="name">Page</div><div class="hex">#FAFAF9</div><div class="label">--bg-page</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#F8F6F3; border:1px solid #e4e0d8;"></div><div class="info"><div class="name">Warm</div><div class="hex">#F8F6F3</div><div class="label">--bg-warm</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#FEFBF6; border:1px solid #e4e0d8;"></div><div class="info"><div class="name">Card</div><div class="hex">#FEFBF6</div><div class="label">--bg-card</div></div></div>
+  <div class="swatch"><div class="chip" style="background:#FFFFFF; border:1px solid #e4e0d8;"></div><div class="info"><div class="name">White</div><div class="hex">#FFFFFF</div><div class="label">--bg-white</div></div></div>
+</div>
+</body>
+</html>

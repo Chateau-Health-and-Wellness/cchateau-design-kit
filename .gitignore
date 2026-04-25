@@ -1,0 +1,11 @@
+# Intermediate/working files — not part of the design kit
+uploads/
+export/
+scraps/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/

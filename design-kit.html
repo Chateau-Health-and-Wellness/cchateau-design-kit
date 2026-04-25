@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chateau Health &amp; Wellness — Design Kit</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  /* ─────────────────────────────────────────────────────────────────
+     KIT SHELL — applies only to the consolidated design kit page.
+     Each section block reuses the original preview markup verbatim.
+  ───────────────────────────────────────────────────────────────── */
+  html, body { background: #FFFFFF; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--neutral-900);
+    margin: 0;
+    padding: 0;
+  }
+  .kit {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 56px 48px 96px;
+  }
+
+  /* ── Cover header ─────────────────────────────────────────────── */
+  .kit-header {
+    border-bottom: 1px solid var(--neutral-300);
+    padding-bottom: 28px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: end;
+  }
+  .kit-header__bar {
+    display: block;
+    width: 56px;
+    height: 4px;
+    background: linear-gradient(90deg, #D17400, #E17100);
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  .kit-header__eyebrow {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand-secondary);
+    margin-bottom: 8px;
+  }
+  .kit-header__title {
+    font-family: var(--font-serif);
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--neutral-900);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .kit-header__sub {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--neutral-700);
+    margin: 12px 0 0;
+    max-width: 640px;
+  }
+  .kit-header__meta {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--neutral-500);
+    text-align: right;
+    line-height: 1.7;
+  }
+  .kit-header__meta strong { color: var(--neutral-900); }
+
+  /* ── Table of contents ────────────────────────────────────────── */
+  .kit-toc {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px 24px;
+    padding: 18px 24px;
+    background: #F8F6F3;
+    border-radius: 8px;
+    margin-bottom: 56px;
+    font-family: var(--font-sans);
+    font-size: 12px;
+  }
+  .kit-toc a {
+    color: var(--brand-primary);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    border-left: 2px solid var(--neutral-300);
+    padding-left: 10px;
+    transition: color var(--transition-base), border-color var(--transition-base);
+  }
+  .kit-toc a:hover { color: var(--accent); border-color: var(--accent); }
+  .kit-toc a span { color: var(--neutral-500); margin-right: 6px; font-family: monospace; font-size: 11px; }
+
+  /* ── Section frame ────────────────────────────────────────────── */
+  .kit-section {
+    margin: 0 0 64px;
+    scroll-margin-top: 24px;
+  }
+  .kit-section__head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--neutral-300);
+  }
+  .kit-section__num {
+    font-family: monospace;
+    font-size: 12px;
+    color: var(--neutral-500);
+    letter-spacing: 0.10em;
+  }
+  .kit-section__title {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--neutral-900);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .kit-section__sub {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--neutral-500);
+    margin-left: auto;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .kit-section__note {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--neutral-700);
+    margin: 0 0 20px;
+    max-width: 760px;
+  }
+
+  /* ── Sub-block (used inside sections to label internal groups) ── */
+  .kit-block-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-secondary);
+    margin: 24px 0 12px;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────
+     §1 LOGO — replicated from preview/brand-logo.html
+  ───────────────────────────────────────────────────────────────── */
+  .logo-row { display: flex; gap: 16px; align-items: stretch; flex-wrap: wrap; }
+  .logo-card { border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-card); flex: 1; min-width: 260px; max-width: 520px; border: 1px solid var(--neutral-300); }
+  .logo-bg { padding: 56px 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px; background: #FFFFFF; }
+  .logo-bg img { max-width: 240px; height: auto; display: block; }
+  .logo-card .card-label { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--neutral-500); margin-top: 24px; text-align: center; }
+  .logo-card .card-hex { font-family: monospace; font-size: 10px; color: var(--neutral-500); opacity: 0.7; margin-top: 2px; text-align: center; }
+
+  /* ─────────────────────────────────────────────────────────────────
+     §2 COLORS — from preview/colors-brand.html + colors-neutral.html
+  ───────────────────────────────────────────────────────────────── */
+  .swatch-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .swatch { border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.10); flex: 1; min-width: 100px; }
+  .swatch .chip { height: 72px; }
+  .swatch .info { background: white; padding: 8px 10px; }
+  .swatch .name { font-size: 11px; font-weight: 700; color: #303442; text-transform: uppercase; letter-spacing: 0.06em; }
+  .swatch .hex  { font-size: 11px; color: #9295A1; font-family: monospace; margin-top: 2px; }
+  .swatch .label { font-size: 10px; color: #9295A1; margin-top: 1px; }
+  .swatch.primary-cta .chip { position: relative; }
+  .swatch.primary-cta .chip::after { content: 'PRIMARY CTA'; position: absolute; bottom: 6px; left: 6px; font-size: 8px; font-weight: 700; letter-spacing: 0.08em; background: #2C4A67; color: #fff; padding: 2px 6px; border-radius: 2px; }
+  .usage-note { font-size: 11px; font-family: var(--font-sans); color: var(--neutral-700); background: #FFF7EE; border-radius: 4px; padding: 10px 14px; margin-bottom: 14px; border-left: 3px solid var(--accent); }
+  .neutral-swatch .chip { height: 56px; }
+  .neutral-swatch { min-width: 80px; }
+
+  /* ─────────────────────────────────────────────────────────────────
+     §3 TYPOGRAPHY — preview/type-headings.html + type-body.html + type-editorial.html
+  ───────────────────────────────────────────────────────────────── */
+  .type-row {
+    display: flex; align-items: baseline; gap: 16px;
+    border-bottom: 1px solid var(--neutral-300);
+    padding: 12px 0;
+  }
+  .type-row:last-child { border-bottom: none; }
+  .type-row .meta { width: 90px; flex-shrink: 0; padding-top: 2px; }
+  .type-row .meta-tag { font-family: var(--font-sans); font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--neutral-500); }
+  .type-row .meta-size { font-family: monospace; font-size: 10px; color: var(--neutral-300); }
+  .type-row .bar { width: 3px; height: 32px; background: var(--accent); border-radius: 2px; flex-shrink: 0; align-self: center; }
+  .type-row h1, .type-row h2, .type-row h3, .type-row h4, .type-row p { margin: 0; }
+  .editorial-block { padding-top: 8px; }
+
+  /* ─────────────────────────────────────────────────────────────────
+     §4 BUTTONS — preview/buttons.html
+  ───────────────────────────────────────────────────────────────── */
+  .btn-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .btn-dark-row { background: var(--brand-primary); padding: 14px 16px; border-radius: 8px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+  .btn-img-row { background: #181A21; padding: 14px 16px; border-radius: 8px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+  .btn-row label, .btn-dark-row label, .btn-img-row label {
+    font-family: var(--font-sans); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--neutral-500); width: 100%; margin-bottom: -4px;
+  }
+  .btn-dark-row label, .btn-img-row label { color: rgba(255,255,255,0.4); }
+  .btn-row .note { font-family: var(--font-sans); font-size: 10px; color: var(--neutral-500); font-style: italic; margin-left: 4px; }
+  .kit .btn { padding: 12px 24px; font-size: 14px; }
+  .kit .btn-sm { padding: 8px 18px; font-size: 12px; }
+  .btn-divider { height: 1px; background: var(--neutral-300); margin: 14px 0; }
+
+  /* ─────────────────────────────────────────────────────────────────
+     §5 OVERLAYS — preview/colors-overlays.html
+  ───────────────────────────────────────────────────────────────── */
+  .ov-stage { background: #181A21; padding: 16px; border-radius: 10px; }
+  .ov-section-title { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.30); margin: 14px 0 8px; }
+  .ov-section-title:first-child { margin-top: 0; }
+  .ov-row { display: flex; gap: 10px; margin-bottom: 10px; }
+  .ov-tile { flex: 1; border-radius: 6px; overflow: hidden; position: relative; }
+  .ov-bg { width: 100%; height: 100%; background: url('assets/facility-commons.webp') center/cover; }
+  .ov-ov { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 14px 16px; }
+  .ov-name { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; }
+  .ov-use  { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 3px; line-height: 1.4; }
+  .ov-tile-xl { height: 200px; } .ov-tile-lg { height: 160px; } .ov-tile-sm { height: 110px; }
+  .ov-hero-bar { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg,#D17400,#E17100); z-index: 2; }
+  .ov-hero-text { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; color: #fff; line-height: 1.2; margin-bottom: 5px; }
+  .ov-hero-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #E17100; margin-bottom: 6px; }
+  .ov-rule { height: 1px; background: rgba(255,255,255,0.08); margin: 8px 0 12px; }
+  .ov-dep { position: absolute; top: 8px; right: 8px; background: rgba(209,116,0,0.75); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 7px; border-radius: 3px; }
+  .ov-token-label { position:absolute; bottom:10px; right:12px; font-size:9px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:rgba(255,255,255,0.25); }
+  .ov-mini-cta { background:#2C4A67; color:#fff; border-radius:9999px; padding:6px 14px; font-size:10px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; }
+  .ov-mini-cta--ghost { background:transparent; border:1.5px solid rgba(255,255,255,0.4); color:#fff; border-radius:9999px; padding:6px 14px; font-size:10px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; }
+
+  /* ─────────────────────────────────────────────────────────────────
+     §6 SPACING / RADIUS / SHADOWS — preview/spacing-tokens.html
+  ───────────────────────────────────────────────────────────────── */
+  .tokens-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 32px; }
+  .tokens-grid h4 { font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--neutral-500); margin: 0 0 12px; font-family: var(--font-sans); }
+  .space-row { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+  .space-bar { background: var(--brand-secondary); border-radius: 2px; height: 12px; }
+  .space-lbl { font-size: 11px; color: var(--neutral-700); font-family: monospace; width: 130px; flex-shrink: 0; }
+  .radius-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; }
+  .r-chip { background: var(--brand-primary); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; }
+  .r-lbl { font-size: 9px; color: white; font-family: monospace; }
+  .shadow-row { display: flex; gap: 12px; flex-wrap: wrap; padding: 10px 0 4px; }
+  .s-card { background: white; width: 80px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 9px; color: var(--neutral-500); font-family: monospace; }
+
+  /* ─────────────────────────────────────────────────────────────────
+     §7 CARDS — preview/cards.html (full system reproduced)
+  ───────────────────────────────────────────────────────────────── */
+  .cards-page { --bg-card: #FFFFFF; --bg-warm: #FFFFFF; }
+  .cards-group { margin-bottom: 36px; }
+  .cards-row { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+  .cards-stack { display: flex; flex-direction: column; gap: 14px; width: 100%; }
+  .variant-label { font-family: var(--font-sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--neutral-500); margin-bottom: 10px; }
+  .variant-rationale { font-family: var(--font-sans); font-size: 13px; line-height: 1.55; color: var(--neutral-700); margin: 10px 2px 0; max-width: 880px; }
+  .variant-rationale strong { color: var(--neutral-900); }
+
+  /* Editorial CTA + inline link */
+  .cta-editorial {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 16px;
+    letter-spacing: 0.01em; padding: 12px 26px; border-radius: 9999px;
+    border: 2px solid var(--brand-primary); background: var(--brand-primary); color: #FFFFFF;
+    text-decoration: none; transition: background var(--transition-base), border-color var(--transition-base), transform var(--transition-base);
+    white-space: nowrap; align-self: flex-start;
+  }
+  .cta-editorial:hover { background: var(--brand-primary-dark); border-color: var(--brand-primary-dark); transform: translateY(-1px); }
+  .cta-editorial--ghost { background: transparent; color: rgba(255,255,255,0.92); border-color: rgba(255,255,255,0.55); }
+  .cta-editorial--ghost:hover { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.85); color: #FFFFFF; }
+  .link-editorial {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 17px;
+    color: var(--brand-primary); text-decoration: none;
+    display: inline-flex; align-items: baseline; gap: 6px;
+    transition: color var(--transition-base), gap var(--transition-base);
+  }
+  .link-editorial:hover { color: var(--brand-primary-dark); gap: 10px; }
+  .link-editorial::after { content: '»'; font-style: normal; font-size: 1.05em; line-height: 1; }
+
+  /* Path card */
+  .path-card { width: 360px; background: #FFFFFF; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-card); display: flex; flex-direction: column; transition: box-shadow var(--transition-base), transform var(--transition-base); }
+  .path-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-4px); }
+  .path-card__media { position: relative; height: 180px; overflow: hidden; }
+  .path-card__img { position: absolute; inset: 0; background-size: cover; background-position: center; }
+  .path-card__media::after { content: ''; position: absolute; inset: 0; background: rgba(48,52,66,0.2); }
+  .path-card__icon { position: absolute; left: 20px; bottom: 20px; width: 48px; height: 48px; border-radius: 10px; background: rgba(255,255,255,0.95); box-shadow: 0 4px 6px -4px rgba(0,0,0,0.1), 0 10px 15px -3px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; z-index: 2; color: var(--brand-primary); }
+  .path-card__icon svg { width: 24px; height: 24px; display: block; }
+  .path-card__body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; }
+  .path-card__eyebrow { font-family: var(--font-sans); font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--brand-secondary); }
+  .path-card__title { font-family: var(--font-sans); font-size: 22px; font-weight: 700; line-height: 1.25; color: var(--neutral-900); margin: -6px 0 -2px; }
+  .path-card__desc { font-family: var(--font-sans); font-size: 14px; line-height: 1.55; color: var(--neutral-700); margin: 0; }
+  .path-card__list { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .path-card__list li { font-family: var(--font-sans); font-size: 14px; color: var(--neutral-700); padding-left: 16px; position: relative; }
+  .path-card__list li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--brand-secondary); }
+  .path-card .link-editorial { margin-top: 6px; font-size: 16px; }
+
+  /* Approach card */
+  .approach-card { width: 560px; background: #FFFFFF; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-card); display: flex; flex-direction: column; }
+  .approach-card__media { height: 260px; background-size: cover; background-position: center; }
+  .approach-card__body { padding: 30px 36px 34px; display: flex; flex-direction: column; gap: 14px; }
+  .approach-card__title { font-family: var(--font-serif); font-size: 30px; font-weight: 400; color: var(--neutral-900); line-height: 1.2; margin: 0; }
+  .approach-card__desc { font-family: var(--font-sans); font-size: 16px; line-height: 1.6; color: var(--neutral-700); margin: 0; }
+  .approach-card__list { list-style: none; padding: 0; margin: 8px 0 4px; display: flex; flex-direction: column; gap: 10px; }
+  .approach-card__list li { display: flex; align-items: center; gap: 12px; font-family: var(--font-sans); font-size: 15px; color: var(--neutral-900); }
+  .approach-card__check { flex: 0 0 22px; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--brand-secondary); display: flex; align-items: center; justify-content: center; color: var(--brand-secondary); }
+  .approach-card__check svg { width: 12px; height: 12px; }
+  .approach-card .link-editorial { margin-top: 6px; font-size: 18px; }
+
+  /* Banner card variants */
+  .banner-card { width: 100%; max-width: 1180px; height: 240px; border-radius: 14px; overflow: hidden; position: relative; background: #FFFFFF; box-shadow: var(--shadow-card); display: flex; align-items: center; }
+  .banner-card__content { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 14px; }
+  .banner-card__title { font-family: var(--font-serif); font-size: 36px; font-weight: 400; line-height: 1.05; margin: 0; letter-spacing: -0.01em; }
+  .banner-card__desc { font-family: var(--font-sans); font-size: 15px; line-height: 1.6; margin: 0; }
+  .banner-card--overlay { justify-content: flex-end; }
+  .banner-card--overlay .banner-card__img { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.55; }
+  .banner-card--overlay::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(24,26,33,0.20) 0%, rgba(24,26,33,0.55) 40%, rgba(24,26,33,0.80) 55%, rgba(24,26,33,0.85) 100%); }
+  .banner-card--overlay .banner-card__content { width: 52%; padding: 36px 44px; }
+  .banner-card--overlay .banner-card__title { color: #FFFFFF; }
+  .banner-card--overlay .banner-card__desc { color: rgba(255,255,255,0.90); max-width: 520px; }
+  .banner-card--overlay .banner-card__rule { display: block; width: 48px; height: 4px; background: var(--accent); border-radius: 2px; margin-bottom: 2px; }
+  .banner-card--overlay .cta-orange-outline {
+    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+    font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 16px;
+    letter-spacing: 0.01em; padding: 12px 26px; border-radius: 9999px;
+    background: #FFFFFF; color: var(--accent); border: 2px solid var(--accent);
+    text-decoration: none; transition: background var(--transition-base), color var(--transition-base), transform var(--transition-base);
+    white-space: nowrap;
+  }
+  .banner-card--overlay .cta-orange-outline:hover { background: var(--accent); color: #FFFFFF; transform: translateY(-1px); }
+  .banner-card--split { display: grid; grid-template-columns: 5fr 7fr; }
+  .banner-card--split .banner-card__img { background-size: cover; background-position: center; height: 100%; }
+  .banner-card--split .banner-card__content { padding: 36px 44px; justify-content: center; }
+  .banner-card--split .banner-card__title { color: var(--brand-primary); }
+  .banner-card--split .banner-card__desc { color: var(--neutral-900); max-width: 520px; }
+  .banner-card--framed { display: grid; grid-template-columns: 320px 1fr; gap: 28px; padding: 20px 32px 20px 20px; height: 260px; align-items: stretch; }
+  .banner-card--framed .banner-card__img { background-size: cover; background-position: center; border-radius: 10px; height: 100%; }
+  .banner-card--framed .banner-card__content { padding: 8px 0; justify-content: center; }
+  .banner-card--framed .banner-card__title { color: var(--brand-primary); }
+  .banner-card--framed .banner-card__desc { color: var(--neutral-900); max-width: 620px; }
+  .banner-card--scrim { justify-content: flex-end; }
+  .banner-card--scrim .banner-card__img { position: absolute; inset: 0; background-size: cover; background-position: center; }
+  .banner-card--scrim .banner-card__scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0.70) 55%, rgba(0,0,0,0.82) 75%, rgba(0,0,0,0.85) 100%); }
+  .banner-card--scrim .banner-card__content { width: 48%; padding: 36px 44px; gap: 16px; }
+  .banner-card--scrim .banner-card__title { color: #FFFFFF; font-weight: 500; }
+  .banner-card--scrim .banner-card__desc { color: rgba(255,255,255,0.88); max-width: 520px; font-size: 14.5px; }
+
+  /* Accreditation */
+  .accred-card { width: 620px; background: #FFFFFF; border-radius: 16px; padding: 36px 48px 32px; box-shadow: 0 8px 10px -6px rgba(0,0,0,0.1), 0 20px 25px -5px rgba(0,0,0,0.1); text-align: center; }
+  .accred-card__title { font-family: var(--font-serif); font-size: 22px; color: var(--neutral-900); margin: 0 0 28px; line-height: 1.3; }
+  .accred-card__badges { display: flex; justify-content: center; align-items: center; gap: 56px; margin-bottom: 24px; }
+  .accred-badge { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .accred-badge__img { width: 140px; height: 140px; background-size: contain; background-position: center; background-repeat: no-repeat; }
+  .accred-badge--wide .accred-badge__img { width: 168px; height: 140px; }
+  .accred-badge__label { font-family: var(--font-serif); font-size: 17px; color: var(--neutral-900); line-height: 1.2; text-align: center; }
+  .accred-card__divider { width: 1px; height: 112px; background: var(--neutral-300); }
+  .accred-card__quote { font-family: var(--font-serif); font-style: italic; font-size: 17px; color: var(--neutral-700); margin: 0; line-height: 1.5; }
+
+  /* Stat / Value / Blog */
+  .stat-card { background: #FFFFFF; border-radius: 12px; box-shadow: var(--shadow-card); width: 180px; padding: 28px 24px; text-align: center; }
+  .stat-card__num { font-family: var(--font-serif); font-size: 48px; font-weight: 400; color: var(--brand-primary); line-height: 1; letter-spacing: -0.02em; }
+  .stat-card__num small { font-size: 24px; color: var(--neutral-500); }
+  .stat-card__label { font-family: var(--font-sans); font-size: 12px; font-weight: 700; color: var(--brand-secondary); text-transform: uppercase; letter-spacing: 0.10em; margin-top: 10px; }
+  .stat-card__rule { width: 24px; height: 2px; background: var(--brand-secondary); margin: 14px auto 0; }
+  .value-card { background: #FFFFFF; border-radius: 12px; box-shadow: var(--shadow-card); width: 260px; padding: 28px 26px 26px; border-top: 3px solid var(--brand-secondary); }
+  .value-card__icon { width: 36px; height: 36px; color: var(--brand-secondary); margin-bottom: 14px; }
+  .value-card__icon svg { width: 100%; height: 100%; }
+  .value-card__title { font-family: var(--font-sans); font-size: 16px; font-weight: 700; color: var(--neutral-900); margin-bottom: 6px; }
+  .value-card__desc { font-family: var(--font-sans); font-size: 14px; color: var(--neutral-700); line-height: 1.55; margin: 0; }
+  .blog-card { width: 300px; background: #FFFFFF; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-card); }
+  .blog-card__img { height: 160px; background-size: cover; background-position: center; }
+  .blog-card__body { padding: 18px 20px 20px; }
+  .blog-card__cat { font-family: var(--font-sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--brand-secondary); margin-bottom: 8px; }
+  .blog-card__title { font-family: var(--font-serif); font-size: 20px; color: var(--neutral-900); line-height: 1.25; margin-bottom: 10px; }
+  .blog-card__meta { font-family: var(--font-sans); font-size: 12px; color: var(--neutral-500); }
+
+  /* ─────────────────────────────────────────────────────────────────
+     §8 PHOTOGRAPHY — preview/brand-photography.html
+  ───────────────────────────────────────────────────────────────── */
+  .photo-stage { background: #181A21; padding: 16px; border-radius: 10px; }
+  .photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .photo-card { border-radius: 8px; overflow: hidden; position: relative; aspect-ratio: 4/3; }
+  .photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-cap { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(24,26,33,0.85)); padding: 6px 8px; font-size: 10px; color: rgba(255,255,255,0.75); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* ── Footer ──────────────────────────────────────────────────── */
+  .kit-footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--neutral-300);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--neutral-500);
+  }
+
+  /* ── Print ───────────────────────────────────────────────────── */
+  @media print {
+    .kit { padding: 24px; max-width: none; }
+    .kit-section { break-inside: avoid; page-break-inside: avoid; }
+    .kit-toc { break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+
+  /* ── Responsive ──────────────────────────────────────────────── */
+  @media (max-width: 1080px) {
+    .tokens-grid { grid-template-columns: 1fr 1fr; }
+    .kit-toc { grid-template-columns: repeat(2, 1fr); }
+    .photo-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .kit { padding: 32px 20px 64px; }
+    .kit-header { grid-template-columns: 1fr; }
+    .kit-header__meta { text-align: left; }
+    .kit-header__title { font-size: 32px; }
+    .tokens-grid { grid-template-columns: 1fr; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .banner-card { height: auto; }
+    .banner-card--overlay { min-height: 320px; align-items: flex-end; }
+    .banner-card--overlay .banner-card__content { width: 100%; padding: 28px 24px; }
+    .banner-card--overlay::before { background: linear-gradient(180deg, rgba(24,26,33,0.25) 0%, rgba(24,26,33,0.55) 40%, rgba(24,26,33,0.82) 100%); }
+    .banner-card--split { grid-template-columns: 1fr; }
+    .banner-card--split .banner-card__img { height: 180px; }
+    .banner-card--framed { grid-template-columns: 1fr; height: auto; gap: 20px; padding: 20px; }
+    .banner-card--framed .banner-card__img { height: 180px; }
+    .banner-card--scrim { justify-content: stretch; min-height: 320px; align-items: flex-end; }
+    .banner-card--scrim .banner-card__content { width: 100%; padding: 36px 24px 28px; }
+    .banner-card--scrim .banner-card__scrim { background: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.80) 100%); }
+    .banner-card__title { font-size: 28px; }
+    .accred-card__badges { flex-direction: column; gap: 24px; }
+    .accred-card__divider { width: 80px; height: 1px; }
+  }
+</style>
+</head>
+<body>
+<div class="kit">
+
+  <!-- ════════════════════════════════════════════════════════════════
+       COVER
+  ════════════════════════════════════════════════════════════════ -->
+  <header class="kit-header">
+    <div>
+      <span class="kit-header__bar"></span>
+      <div class="kit-header__eyebrow">Brand &amp; UI Reference</div>
+      <h1 class="kit-header__title">Chateau Health &amp; Wellness — Design Kit</h1>
+      <p class="kit-header__sub">A single-page reference of the Chateau brand system: logo, color, typography, buttons, overlays, spacing, cards, and photography. Sourced from the project's preview library and design tokens. For internal share-out and partner handoff.</p>
+    </div>
+    <div class="kit-header__meta">
+      <div><strong>Version</strong> April 2026</div>
+      <div><strong>Source</strong> /project/preview</div>
+      <div><strong>Tokens</strong> colors_and_type.css</div>
+    </div>
+  </header>
+
+  <nav class="kit-toc" aria-label="Contents">
+    <a href="#sec-logo"><span>01</span>Logo</a>
+    <a href="#sec-colors"><span>02</span>Color</a>
+    <a href="#sec-type"><span>03</span>Typography</a>
+    <a href="#sec-buttons"><span>04</span>Buttons</a>
+    <a href="#sec-overlays"><span>05</span>Overlays</a>
+    <a href="#sec-tokens"><span>06</span>Spacing &amp; Tokens</a>
+    <a href="#sec-cards"><span>07</span>Cards</a>
+    <a href="#sec-photo"><span>08</span>Photography</a>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       §1 LOGO
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="kit-section" id="sec-logo">
+    <div class="kit-section__head">
+      <span class="kit-section__num">01</span>
+      <h2 class="kit-section__title">Logo</h2>
+      <span class="kit-section__sub">brand mark · light background</span>
+    </div>
+    <div class="logo-row">
+      <div class="logo-card">
+        <div class="logo-bg">
+          <img src="assets/logo-dark.png" alt="Chateau Health &amp; Wellness logo">
+          <div class="card-label">Light background</div>
+          <div class="card-hex">#FFFFFF</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       §2 COLOR
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="kit-section" id="sec-colors">
+    <div class="kit-section__head">
+      <span class="kit-section__num">02</span>
+      <h2 class="kit-section__title">Color</h2>
+      <span class="kit-section__sub">brand · neutrals · status</span>
+    </div>
+
+    <div class="usage-note">
+      <strong>Burnt Orange is a sparing accent</strong> — approved for the 4px accent bar, eyebrow labels, inline text links, and one accent CTA per section. Not for large fills, overlays, or button backgrounds.
+    </div>
+
+    <div class="kit-block-label">Brand &amp; Status</div>
+    <div class="swatch-row">
+      <div class="swatch primary-cta">
+        <div class="chip" style="background:#2C4A67;"></div>
+        <div class="info"><div class="name">Steel Blue</div><div class="hex">#2C4A67</div><div class="label">--brand-primary · Primary CTA</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#50717A;"></div>
+        <div class="info"><div class="name">Muted Teal</div><div class="hex">#50717A</div><div class="label">--brand-secondary</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#354B51;"></div>
+        <div class="info"><div class="name">Dark Teal</div><div class="hex">#354B51</div><div class="label">--brand-secondary-dark</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#D17400;"></div>
+        <div class="info"><div class="name">Burnt Orange</div><div class="hex">#D17400</div><div class="label">--accent · SPARING only</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#E17100;"></div>
+        <div class="info"><div class="name">Bright Orange</div><div class="hex">#E17100</div><div class="label">--accent-bright · SPARING only</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#D50000;"></div>
+        <div class="info"><div class="name">Alert Red</div><div class="hex">#D50000</div><div class="label">--alert-red</div></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#0AA29E;"></div>
+        <div class="info"><div class="name">Success</div><div class="hex">#0AA29E</div><div class="label">--success-green</div></div>
+      </div>
+    </div>
+
+    <div class="kit-block-label">Text &amp; Ink</div>
+    <div class="swatch-row">
+      <div class="swatch neutral-swatch"><div class="chip" style="background:#181A21;"></div><div class="info"><div class="name">950</div><div class="hex">#181A21</div><div class="label">Footer bg</div></div></div>
+      <div class="swatch neutral-swatch"><div class="chip" style="background:#303442;"></div><div class="info"><div class="name">900</div><div class="hex">#303442</div><div class="label">Headings</div></div></div>
+      <div class="swatch neutral-swatch"><div class="chip" style="background:#626571;"></div><div class="info"><div class="name">700</div><div class="hex">#626571</div><div class="label">Body</div></div></div>
+      <div class="swatch neutral-swatch"><div class="chip" style="background:#9295A1;"></div><div class="info"><div class="name">500</div><div class="hex">#9295A1</div><div class="label">Muted</div></div></div>
+      <div class="swatch neutral-swatch"><div class="chip" style="background:#C2C5D0; border: 1px solid #e4e0d8;"></div><div class="info"><div class="name">300</div><div class="hex">#C2C5D0</div><div class="label">Borders</div></div></div>
+    </div>
+
+    <div class="kit-block-label">Backgrounds</div>
+    <div class="swatch-row">
+      <div class="swatch neutral-swatch"><div class="chip" style="background:#FAFAF9; border:1px solid #e4e0d8;"></div><div class="info"><div class="name">Page</div><div class="hex">#FAFAF9</div><div class="label">--bg-page</div></div></div>
+      <div class="swatch neutral-swatch"><div class="chip" style="background:#F8F6F3; border:1px solid #e4e0d8;"></div><div class="info"><div class="name">Warm</div><div class="hex">#F8F6F3</div><div class="label">--bg-warm</div></div></div>
+      <div class="swatch neutral-swatch"><div class="chip" style="background:#FEFBF6; border:1px solid #e4e0d8;"></div><div class="info"><div class="name">Card</div><div class="hex">#FEFBF6</div><div class="label">--bg-card</div></div></div>
+      <div class="swatch neutral-swatch"><div class="chip" style="background:#FFFFFF; border:1px solid #e4e0d8;"></div><div class="info"><div class="name">White</div><div class="hex">#FFFFFF</div><div class="label">--bg-white</div></div></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       §3 TYPOGRAPHY
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="kit-section" id="sec-type">
+    <div class="kit-section__head">
+      <span class="kit-section__num">03</span>
+      <h2 class="kit-section__title">Typography</h2>
+      <span class="kit-section__sub">EB Garamond · Arial</span>
+    </div>
+
+    <div class="kit-block-label">Headings — EB Garamond</div>
+    <div class="type-row">
+      <div class="meta"><div class="meta-tag">H1</div><div class="meta-size">48px / 400</div></div>
+      <div class="bar"></div>
+      <h1>Healing Begins Here</h1>
+    </div>
+    <div class="type-row">
+      <div class="meta"><div class="meta-tag">H2</div><div class="meta-size">36px / 400</div></div>
+      <div class="bar"></div>
+      <h2>Evidence-Based Treatment</h2>
+    </div>
+    <div class="type-row">
+      <div class="meta"><div class="meta-tag">H3</div><div class="meta-size">28px / 400</div></div>
+      <div class="bar"></div>
+      <h3>Trauma-Informed Care</h3>
+    </div>
+    <div class="type-row">
+      <div class="meta"><div class="meta-tag">H4</div><div class="meta-size">24px / 700</div></div>
+      <div class="bar"></div>
+      <h4 style="font-family: 'EB Garamond', serif; font-weight:500;">Residential Programs</h4>
+    </div>
+
+    <div class="kit-block-label">Body &amp; UI — Arial</div>
+    <div class="type-row">
+      <div class="meta"><div class="meta-tag">Label</div><div class="meta-size">14px Bold</div></div>
+      <div class="bar"></div>
+      <div class="section-label" style="margin:0;">OUR APPROACH</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><div class="meta-tag">Body Lg</div><div class="meta-size">18px / 1.625</div></div>
+      <div class="bar"></div>
+      <p style="font-size:18px;">Chateau Health &amp; Wellness provides intimate, trauma-informed residential treatment in Utah's Wasatch Mountains, serving first responders, veterans, and professionals.</p>
+    </div>
+    <div class="type-row">
+      <div class="meta"><div class="meta-tag">Body</div><div class="meta-size">16px / 1.6</div></div>
+      <div class="bar"></div>
+      <p style="font-size:16px; color: var(--neutral-700);">Joint Commission-accredited with Master's Level Clinicians. Ages 26+ only. FOP Approved Wellness Provider since 2012.</p>
+    </div>
+    <div class="type-row">
+      <div class="meta"><div class="meta-tag">Small</div><div class="meta-size">14px / 1.5</div></div>
+      <div class="bar"></div>
+      <p style="font-size:14px; color: var(--neutral-500);">All inquiries are 100% confidential. (435) 222-5225 · Oakley, Utah</p>
+    </div>
+    <div class="type-row">
+      <div class="meta"><div class="meta-tag">Card Title</div><div class="meta-size">20px Bold</div></div>
+      <div class="bar"></div>
+      <div style="font-family:Arial,sans-serif; font-size:20px; font-weight:700; color:var(--neutral-900);">First Responders</div>
+    </div>
+
+    <div class="kit-block-label">Editorial &amp; Pull Quote</div>
+    <div class="editorial-block">
+      <span class="section-label">OUR STORY</span>
+      <div class="editorial" style="margin: 8px 0 0;">
+        Founded in 2012, Chateau Health &amp; Wellness was built on the belief that healing requires more than a clinical setting — it requires a place that feels like home, surrounded by the quiet strength of the mountains.
+      </div>
+      <div style="height:1px;background:var(--neutral-300);margin:16px 0;"></div>
+      <div class="pull-quote">
+        &ldquo;You've carried the weight of others for years. Let us carry some of yours.&rdquo;
+      </div>
+      <div style="font-family:'EB Garamond',serif; font-size:16px; font-style:italic; color:var(--neutral-500); margin-top:8px;">
+        — Testimonial attribution, Name · Role · Department
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       §4 BUTTONS
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="kit-section" id="sec-buttons">
+    <div class="kit-section__head">
+      <span class="kit-section__num">04</span>
+      <h2 class="kit-section__title">Buttons</h2>
+      <span class="kit-section__sub">CTA system · light + dark contexts</span>
+    </div>
+
+    <div class="btn-row">
+      <label>Primary CTA — Steel Blue <span class="note">(default large fill)</span></label>
+      <a class="btn btn-primary">Get Help Now</a>
+      <a class="btn btn-primary btn-sm">Get Help Now</a>
+    </div>
+    <div class="btn-row">
+      <label>Accent CTA — Burnt Orange <span class="note">(sparing — one per section max)</span></label>
+      <a class="btn btn-accent">Get Help Now</a>
+      <a class="btn btn-accent btn-sm">Get Help Now</a>
+    </div>
+
+    <div class="btn-divider"></div>
+
+    <div class="btn-row">
+      <label>Secondary — Steel Blue Outlined</label>
+      <a class="btn btn-secondary">Explore Programs</a>
+    </div>
+    <div class="btn-row">
+      <label>Outline Accent — Teal <span class="note">(verify insurance, low-emphasis)</span></label>
+      <a class="btn btn-outline-accent">Verify Insurance</a>
+    </div>
+
+    <div class="btn-divider"></div>
+
+    <div class="btn-dark-row">
+      <label>On Dark (nav, footer)</label>
+      <a class="btn btn-primary" style="font-size:14px;padding:12px 24px;">Get Help Now</a>
+      <a class="btn btn-ghost" style="font-size:14px;padding:12px 24px;">Verify Insurance</a>
+    </div>
+    <div class="btn-img-row">
+      <label>On Image (hero, spotlight) — cinematic bg</label>
+      <a class="btn btn-primary" style="font-size:14px;padding:12px 24px;">Get Help Now</a>
+      <a class="btn btn-ghost" style="font-size:14px;padding:12px 24px;">Verify Insurance</a>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       §5 OVERLAYS
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="kit-section" id="sec-overlays">
+    <div class="kit-section__head">
+      <span class="kit-section__num">05</span>
+      <h2 class="kit-section__title">Image Overlays</h2>
+      <span class="kit-section__sub">near-black cinematic system</span>
+    </div>
+    <p class="kit-section__note">All photographic surfaces use the near-black cinematic family. Orange overlays are deprecated. Use the directional sweep for hero, the bottom fade for cards, the center wash for testimonials, and the subtle wash for decorative section tints.</p>
+
+    <div class="ov-stage">
+      <div class="ov-section-title">▶ Near-Black Cinematic — approved overlay system</div>
+
+      <div class="ov-row">
+        <div class="ov-tile ov-tile-xl" style="flex:1.7;">
+          <div class="ov-bg"></div>
+          <div class="ov-hero-bar"></div>
+          <div class="ov-ov overlay-cinematic-hero" style="justify-content:center; padding: 20px 22px;">
+            <div class="ov-hero-eyebrow">Chateau Health &amp; Wellness</div>
+            <div class="ov-hero-text">Where first responders<br>reclaim their lives</div>
+            <div style="margin-top:10px;display:flex;gap:8px;">
+              <div class="ov-mini-cta">Get Help Now</div>
+              <div class="ov-mini-cta--ghost">Verify Insurance</div>
+            </div>
+          </div>
+          <div class="ov-token-label">cinematic-hero · var(--overlay-cinematic-hero)</div>
+        </div>
+        <div class="ov-tile ov-tile-xl" style="flex:1;">
+          <div class="ov-bg"></div>
+          <div class="ov-ov overlay-blue" style="justify-content:center;">
+            <div class="ov-name">Blue Split</div>
+            <div class="ov-use">Text-left / image-right layouts<br>overlay-blue</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ov-row">
+        <div class="ov-tile ov-tile-lg">
+          <div class="ov-bg"></div>
+          <div class="ov-ov overlay-cinematic-bottom">
+            <div class="ov-name">Cinematic Bottom Fade</div>
+            <div class="ov-use">Program cards · team photos · gallery tiles<br>overlay-cinematic-bottom</div>
+          </div>
+        </div>
+        <div class="ov-tile ov-tile-lg">
+          <div class="ov-bg"></div>
+          <div class="ov-ov overlay-cinematic-center" style="justify-content:center; align-items:center; text-align:center;">
+            <div class="ov-name">Cinematic Center</div>
+            <div class="ov-use">Testimonial full-bleed · centered text sections<br>overlay-cinematic-center</div>
+          </div>
+        </div>
+        <div class="ov-tile ov-tile-lg">
+          <div class="ov-bg"></div>
+          <div class="ov-ov overlay-cinematic-subtle" style="justify-content:center; align-items:center; text-align:center;">
+            <div class="ov-name">Cinematic Subtle</div>
+            <div class="ov-use">Section tints · decorative wash<br>overlay-cinematic-subtle</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ov-rule"></div>
+      <div class="ov-section-title" style="color:rgba(209,116,0,0.5);">✕ Deprecated — orange overlays (do not use in new work)</div>
+      <div class="ov-row">
+        <div class="ov-tile ov-tile-sm" style="opacity:0.55;">
+          <div class="ov-bg" style="filter:grayscale(30%);"></div>
+          <div class="ov-dep">Deprecated</div>
+          <div class="ov-ov" style="background:linear-gradient(135deg,rgba(209,116,0,0.65) 0%,rgba(44,74,103,0.80) 100%);">
+            <div class="ov-name" style="color:rgba(255,255,255,0.6);">overlay-orange</div>
+            <div class="ov-use">Replaced by overlay-cinematic-center</div>
+          </div>
+        </div>
+        <div class="ov-tile ov-tile-sm" style="opacity:0.55;">
+          <div class="ov-bg" style="filter:grayscale(30%);"></div>
+          <div class="ov-dep">Deprecated</div>
+          <div class="ov-ov" style="background:rgba(209,116,0,0.08);">
+            <div class="ov-name" style="color:rgba(255,255,255,0.6);">overlay-warm</div>
+            <div class="ov-use">Replaced by overlay-cinematic-subtle</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       §6 SPACING / RADIUS / SHADOWS
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="kit-section" id="sec-tokens">
+    <div class="kit-section__head">
+      <span class="kit-section__num">06</span>
+      <h2 class="kit-section__title">Spacing &amp; Tokens</h2>
+      <span class="kit-section__sub">space · radius · elevation</span>
+    </div>
+    <div class="tokens-grid">
+      <div>
+        <h4>Space Scale</h4>
+        <div class="space-row"><span class="space-lbl">--space-2 · 8px</span><div class="space-bar" style="width:8px;"></div></div>
+        <div class="space-row"><span class="space-lbl">--space-4 · 16px</span><div class="space-bar" style="width:16px;"></div></div>
+        <div class="space-row"><span class="space-lbl">--space-6 · 24px</span><div class="space-bar" style="width:24px;"></div></div>
+        <div class="space-row"><span class="space-lbl">--space-8 · 32px</span><div class="space-bar" style="width:32px;"></div></div>
+        <div class="space-row"><span class="space-lbl">--space-12 · 48px</span><div class="space-bar" style="width:48px;"></div></div>
+        <div class="space-row"><span class="space-lbl">--space-16 · 64px</span><div class="space-bar" style="width:64px;"></div></div>
+        <div class="space-row"><span class="space-lbl">--space-20 · 80px</span><div class="space-bar" style="width:80px;"></div></div>
+      </div>
+      <div>
+        <h4>Border Radius</h4>
+        <div class="radius-row">
+          <div class="r-chip" style="border-radius:4px;"><span class="r-lbl">sm·4</span></div>
+          <div class="r-chip" style="border-radius:8px;"><span class="r-lbl">md·8</span></div>
+          <div class="r-chip" style="border-radius:12px;"><span class="r-lbl">lg·12</span></div>
+          <div class="r-chip" style="border-radius:9999px; width:80px;"><span class="r-lbl">pill</span></div>
+        </div>
+      </div>
+      <div>
+        <h4>Shadows</h4>
+        <div class="shadow-row">
+          <div class="s-card" style="box-shadow:0 1px 4px rgba(0,0,0,0.06);">sm</div>
+          <div class="s-card" style="box-shadow:0 2px 8px rgba(44,74,103,0.08);">card</div>
+          <div class="s-card" style="box-shadow:0 8px 28px rgba(44,74,103,0.14);">hover</div>
+          <div class="s-card" style="box-shadow:0 8px 32px rgba(0,0,0,0.10);">lg</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       §7 CARDS
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="kit-section cards-page" id="sec-cards">
+    <div class="kit-section__head">
+      <span class="kit-section__num">07</span>
+      <h2 class="kit-section__title">Cards</h2>
+      <span class="kit-section__sub">paths · approach · banners · accreditation · supporting</span>
+    </div>
+
+    <!-- Path cards -->
+    <div class="cards-group">
+      <div class="kit-block-label">Path Cards — Who We Serve</div>
+      <div class="cards-row">
+
+        <article class="path-card">
+          <div class="path-card__media">
+            <div class="path-card__img" style="background-image:url('assets/team-group.webp');"></div>
+            <div class="path-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/></svg>
+            </div>
+          </div>
+          <div class="path-card__body">
+            <span class="path-card__eyebrow">For those in service</span>
+            <h3 class="path-card__title">First Responders</h3>
+            <p class="path-card__desc">Support for PTSD, trauma, depression, anxiety, and substance use, built for the culture.</p>
+            <ul class="path-card__list">
+              <li>Confidential, structured care</li>
+              <li>Family support options</li>
+              <li>Admissions support for employers</li>
+            </ul>
+            <a class="link-editorial">Explore First Responder Care</a>
+          </div>
+        </article>
+
+        <article class="path-card">
+          <div class="path-card__media">
+            <div class="path-card__img" style="background-image:url('assets/team-client-staff.webp');"></div>
+            <div class="path-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+          </div>
+          <div class="path-card__body">
+            <span class="path-card__eyebrow">For families</span>
+            <h3 class="path-card__title">Help for a Loved One</h3>
+            <p class="path-card__desc">Guidance for spouses, parents, and families, plus next steps that actually reduce uncertainty.</p>
+            <ul class="path-card__list">
+              <li>What to say, what not to say</li>
+              <li>How admissions works</li>
+              <li>Family programming overview</li>
+            </ul>
+            <a class="link-editorial">Get Family Guidance</a>
+          </div>
+        </article>
+
+        <article class="path-card">
+          <div class="path-card__media">
+            <div class="path-card__img" style="background-image:url('assets/facility-commons.webp');"></div>
+            <div class="path-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+          </div>
+          <div class="path-card__body">
+            <span class="path-card__eyebrow">For professionals</span>
+            <h3 class="path-card__title">Adults 26+</h3>
+            <p class="path-card__desc">Care designed for working adults and established life patterns, privacy, and performance.</p>
+            <ul class="path-card__list">
+              <li>Trauma-informed mental health</li>
+              <li>Co-occurring support</li>
+              <li>Discreet admissions process</li>
+            </ul>
+            <a class="link-editorial">Explore Adult Programs</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Approach -->
+    <div class="cards-group">
+      <div class="kit-block-label">Approach Card — image + checklist</div>
+      <div class="cards-row">
+        <article class="approach-card">
+          <div class="approach-card__media" style="background-image:url('assets/facility-hallway.webp');"></div>
+          <div class="approach-card__body">
+            <h3 class="approach-card__title">Holistic Approach</h3>
+            <p class="approach-card__desc">We treat the whole person through evidence-based therapies combined with wellness practices.</p>
+            <ul class="approach-card__list">
+              <li><span class="approach-card__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Individual &amp; group therapy</li>
+              <li><span class="approach-card__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Mindfulness &amp; meditation</li>
+              <li><span class="approach-card__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Nutrition &amp; fitness programs</li>
+              <li><span class="approach-card__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Adventure therapy in nature</li>
+            </ul>
+            <a class="link-editorial">Explore Our Approach</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Banner variants -->
+    <div class="cards-group">
+      <div class="kit-block-label">Image Banner Card — Program Spotlight (4 variants)</div>
+
+      <div class="cards-stack" style="margin-bottom:32px;">
+        <div class="variant-label">Variant 1 — Dimmed image + dark gradient overlay</div>
+        <article class="banner-card banner-card--overlay">
+          <div class="banner-card__img" style="background-image:url('assets/facility-outdoor.webp');"></div>
+          <div class="banner-card__content">
+            <span class="banner-card__rule" aria-hidden="true"></span>
+            <h3 class="banner-card__title">Trauma and PTSD</h3>
+            <p class="banner-card__desc">Specialized treatment for unresolved trauma, PTSD, and nervous system dysregulation that continues to affect daily life, relationships, and emotional stability.</p>
+            <a class="cta-orange-outline">Learn More &raquo;</a>
+          </div>
+        </article>
+        <p class="variant-rationale"><strong>Solves:</strong> preserves a full-bleed cinematic feel while guaranteeing legibility. Image opacity dropped to 55% under a 0.85→0.20 directional gradient — heading clears <strong>~13:1</strong> and body copy <strong>~9.5:1</strong>, comfortably above WCAG AA 4.5:1.</p>
+      </div>
+
+      <div class="cards-stack" style="margin-bottom:32px;">
+        <div class="variant-label">Variant 2 — Split layout</div>
+        <article class="banner-card banner-card--split">
+          <div class="banner-card__img" style="background-image:url('assets/facility-outdoor.webp');"></div>
+          <div class="banner-card__content">
+            <h3 class="banner-card__title">Trauma and PTSD</h3>
+            <p class="banner-card__desc">Specialized treatment for unresolved trauma, PTSD, and nervous system dysregulation that continues to affect daily life, relationships, and emotional stability.</p>
+            <a class="link-editorial" style="color:var(--accent);font-size:17px;">Learn how we help with Trauma and PTSD</a>
+          </div>
+        </article>
+        <p class="variant-rationale"><strong>Solves:</strong> zero contrast compromise — image at full opacity on its side, text on pure white. Body ≈ <strong>12.6:1</strong>, heading ≈ <strong>9.7:1</strong>. Best for environmental hero shots worth preserving faithfully.</p>
+      </div>
+
+      <div class="cards-stack" style="margin-bottom:32px;">
+        <div class="variant-label">Variant 3 — Framed image</div>
+        <article class="banner-card banner-card--framed">
+          <div class="banner-card__img" style="background-image:url('assets/facility-outdoor.webp');"></div>
+          <div class="banner-card__content">
+            <h3 class="banner-card__title">Trauma and PTSD</h3>
+            <p class="banner-card__desc">Specialized treatment for unresolved trauma, PTSD, and nervous system dysregulation that continues to affect daily life, relationships, and emotional stability.</p>
+            <a class="link-editorial" style="color:var(--accent);font-size:17px;">Learn how we help with Trauma and PTSD</a>
+          </div>
+        </article>
+        <p class="variant-rationale"><strong>Solves:</strong> editorial, calm presentation — image contained in an inset rounded frame. Same contrast as Variant 2 with a "card-within-card" feel. Best for program-directory lists with many banners in sequence.</p>
+      </div>
+
+      <div class="cards-stack">
+        <div class="variant-label">Variant 4 — Full-bleed scrim</div>
+        <article class="banner-card banner-card--scrim">
+          <div class="banner-card__img" style="background-image:url('assets/facility-outdoor.webp');"></div>
+          <div class="banner-card__scrim"></div>
+          <div class="banner-card__content">
+            <h3 class="banner-card__title">Trauma and PTSD</h3>
+            <p class="banner-card__desc">Specialized treatment for unresolved trauma, PTSD, and nervous system dysregulation that continues to affect daily life, relationships, and emotional stability.</p>
+            <a class="cta-editorial cta-editorial--ghost">Learn More &raquo;</a>
+          </div>
+        </article>
+        <p class="variant-rationale"><strong>Solves:</strong> maximum cinematic impact — image at 100% with a one-sided dark scrim (0.05 → 0.85 black) behind text only. White heading ≈ <strong>17:1</strong>; body (white 0.88) ≈ <strong>12.5:1</strong>. Editorial serif-italic ghost CTA replaces the prior burnt-orange pill.</p>
+      </div>
+    </div>
+
+    <!-- Accreditation -->
+    <div class="cards-group">
+      <div class="kit-block-label">Accreditation Card</div>
+      <div class="cards-row">
+        <article class="accred-card">
+          <h3 class="accred-card__title">Nationally Accredited &amp; Recognized</h3>
+          <div class="accred-card__badges">
+            <div class="accred-badge">
+              <div class="accred-badge__img" style="background-image:url('assets/badge-joint-commission.png');"></div>
+              <div class="accred-badge__label">Gold Seal of Approval</div>
+            </div>
+            <div class="accred-card__divider"></div>
+            <div class="accred-badge accred-badge--wide">
+              <div class="accred-badge__img" style="background-image:url('assets/badge-fop.png');"></div>
+              <div class="accred-badge__label">FOP Approved Provider</div>
+            </div>
+          </div>
+          <p class="accred-card__quote">&ldquo;Meeting the highest standards in healthcare quality and safety.&rdquo;</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- Supporting -->
+    <div class="cards-group">
+      <div class="kit-block-label">Supporting — Stat, Value, Blog</div>
+      <div class="cards-row">
+        <div class="stat-card">
+          <div class="stat-card__num">14</div>
+          <div class="stat-card__label">Bed Boutique</div>
+          <div class="stat-card__rule"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__num">4.8<small>/5</small></div>
+          <div class="stat-card__label">Google Rating</div>
+          <div class="stat-card__rule"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__num">12+</div>
+          <div class="stat-card__label">Years of Care</div>
+          <div class="stat-card__rule"></div>
+        </div>
+
+        <div class="value-card">
+          <div class="value-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/>
+              <polyline points="9 12 11 14 15 10"/>
+            </svg>
+          </div>
+          <div class="value-card__title">Specialized Expertise</div>
+          <p class="value-card__desc">First-responder-specific tracks, peer support, and confidentiality built for the culture.</p>
+        </div>
+
+        <article class="blog-card">
+          <div class="blog-card__img" style="background-image:url('assets/facility-therapy-office.webp');"></div>
+          <div class="blog-card__body">
+            <div class="blog-card__cat">First Responders</div>
+            <h4 class="blog-card__title">Understanding PTSD in Law Enforcement</h4>
+            <div class="blog-card__meta">6 min read &middot; April 2026</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       §8 PHOTOGRAPHY
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="kit-section" id="sec-photo">
+    <div class="kit-section__head">
+      <span class="kit-section__num">08</span>
+      <h2 class="kit-section__title">Photography</h2>
+      <span class="kit-section__sub">facility · team · program</span>
+    </div>
+    <div class="photo-stage">
+      <div class="photo-grid">
+        <div class="photo-card"><img src="assets/facility-commons.webp" alt="Commons"><div class="photo-cap">Commons / Great Room</div></div>
+        <div class="photo-card"><img src="assets/facility-reception.webp" alt="Reception"><div class="photo-cap">Reception Desk</div></div>
+        <div class="photo-card"><img src="assets/facility-lobby-logo.webp" alt="Lobby Logo"><div class="photo-cap">Lobby Logo Wall</div></div>
+        <div class="photo-card"><img src="assets/facility-bedroom.webp" alt="Bedroom"><div class="photo-cap">Client Bedroom</div></div>
+        <div class="photo-card"><img src="assets/facility-entrance.webp" alt="Entrance"><div class="photo-cap">Entry Foyer</div></div>
+        <div class="photo-card"><img src="assets/facility-therapy-office.webp" alt="Therapy"><div class="photo-cap">Therapy Office</div></div>
+        <div class="photo-card"><img src="assets/team-group.webp" alt="Team"><div class="photo-cap">Staff Team</div></div>
+        <div class="photo-card"><img src="assets/team-with-dog.webp" alt="With dog"><div class="photo-cap">Therapy Dogs</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="kit-footer">
+    <div>Chateau Health &amp; Wellness · Design Kit · April 2026</div>
+    <div>Oakley, Utah · (435) 222-5225</div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,517 @@
+/**
+ * Chateau Health & Wellness — Design Tokens
+ * Source: Wix CSS variables, Figma design files, April 2026 Website Brief
+ * =========================================================================
+ */
+
+/* ── EB Garamond — Self-hosted brand fonts ───────────────────────── */
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('fonts/EBGaramond-Regular.ttf') format('truetype'),
+       url('fonts/EBGaramond.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('fonts/EBGaramond-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('fonts/EBGaramond-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('fonts/EBGaramond-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('fonts/EBGaramond-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('fonts/EBGaramond-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('fonts/EBGaramond-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('fonts/EBGaramond-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('fonts/EBGaramond-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('fonts/EBGaramond-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+/* Small Caps variant */
+@font-face {
+  font-family: 'EB Garamond SC';
+  src: url('fonts/EBGaramondSC.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+
+  /* ── Brand Primary ───────────────────────────────────────────── */
+  --brand-primary:        #2C4A67;   /* Deep Steel Blue — nav, footer, structural */
+  --brand-primary-dark:   #1e3349;   /* Darker variant for hover/depth */
+  --brand-secondary:      #50717A;   /* Muted Teal/Slate — icons, secondary UI */
+  --brand-secondary-dark: #354B51;   /* Dark Teal — hover states on secondary */
+
+  /* ── Accent — Burnt Orange (SPARING USE ONLY) ─────────────────── */
+  /* Use only for: 4px accent bar, eyebrow/section labels, inline text links */
+  /* Do NOT use for: buttons, overlays, large fills */
+  --accent:           #D17400;              /* Burnt orange — sparing accent only */
+  --accent-bright:    #E17100;              /* Hover variant — sparing accent only */
+  --accent-10:        rgba(209,116,0,0.10); /* Subtle tinted backgrounds (use minimally) */
+  --accent-25:        rgba(209,116,0,0.25); /* DEPRECATED — use cinematic overlay instead */
+  --accent-60:        rgba(209,116,0,0.60); /* DEPRECATED — use cinematic overlay instead */
+  --accent-85:        rgba(209,116,0,0.85); /* DEPRECATED — use cinematic overlay instead */
+
+  /* ── Neutral System ──────────────────────────────────────────── */
+  --neutral-950:  #181A21;   /* Near-black — footer backgrounds */
+  --neutral-900:  #303442;   /* Heading text (H1–H4) */
+  --neutral-700:  #626571;   /* Body copy */
+  --neutral-500:  #9295A1;   /* Tertiary text, metadata */
+  --neutral-300:  #C2C5D0;   /* Borders, dividers */
+  --neutral-teal-300: #C2CFD3; /* Soft teal-tinted light gray */
+  --neutral-teal-500: #69797D; /* Mid teal-gray */
+
+  /* ── Background Surfaces ─────────────────────────────────────── */
+  --bg-page:    #FFFFFF;   /* Default page background (warm tones removed) */
+  --bg-warm:    #FFFFFF;   /* Alternating section backgrounds (de-warmed) */
+  --bg-card:    #FFFFFF;   /* Card backgrounds */
+  --bg-white:   #FFFFFF;   /* Modals, forms */
+
+  /* ── Status / Alert ──────────────────────────────────────────── */
+  --alert-red:      #D50000;   /* Emergency contact banner only */
+  --success-green:  #0AA29E;   /* Form success, verified insurance badge */
+  --mint-green:     #1EBF8F;   /* Accent green variant */
+
+  /* ── Near-Black Cinematic Overlay Tokens ────────────────────── */
+  /* Standard overlay for ALL image sections — approved cinematic treatment */
+  --overlay-cinematic-hero:   linear-gradient(
+    105deg,
+    rgba(24,26,33,0.92) 0%,
+    rgba(24,26,33,0.78) 35%,
+    rgba(24,26,33,0.30) 65%,
+    rgba(24,26,33,0.05) 100%
+  );
+  --overlay-cinematic-bottom: linear-gradient(
+    to top,
+    rgba(24,26,33,0.90) 0%,
+    rgba(24,26,33,0.55) 45%,
+    rgba(24,26,33,0.08) 100%
+  );
+  --overlay-cinematic-center: rgba(24,26,33,0.68);
+  --overlay-cinematic-subtle: rgba(24,26,33,0.38);
+
+  /* ── Semantic Aliases ────────────────────────────────────────── */
+  --color-text-heading:   var(--neutral-900);
+  --color-text-body:      var(--neutral-700);
+  --color-text-muted:     var(--neutral-500);
+  --color-text-inverse:   #FFFFFF;
+  --color-border:         var(--neutral-300);
+  --color-bg-default:     var(--bg-page);
+  --color-bg-section:     var(--bg-warm);
+  --color-bg-card:        var(--bg-card);
+  --color-cta-primary:    var(--brand-primary);   /* Steel Blue — primary CTA */
+  --color-cta-hover:      var(--brand-primary-dark);
+
+  /* ── Typography — Font Families ──────────────────────────────── */
+  --font-serif:      'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans:       Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+  /* ── Typography — Heading Scale (Desktop) ────────────────────── */
+  --text-h1:         48px;
+  --text-h2:         36px;
+  --text-h3:         28px;
+  --text-h4:         24px;
+
+  /* ── Typography — Heading Scale (Mobile) ────────────────────── */
+  --text-h1-mobile:  32px;
+  --text-h2-mobile:  28px;
+  --text-h3-mobile:  24px;
+  --text-h4-mobile:  20px;
+
+  /* ── Typography — Body Scale ─────────────────────────────────── */
+  --text-body-lg:     18px;   /* Standard paragraphs */
+  --text-body:        16px;   /* Cards, compact areas */
+  --text-body-sm:     14px;   /* Captions, metadata */
+  --text-label:       14px;   /* Section labels (uppercase, tracked) */
+  --text-card-title:  20px;
+  --text-cta:         16px;
+  --text-nav:         15px;
+  --text-editorial:   24px;   /* EB Garamond editorial body */
+  --text-pull-quote:  28px;
+
+  /* ── Line Heights ─────────────────────────────────────────────── */
+  --leading-tight:    1.2;
+  --leading-snug:     1.3;
+  --leading-normal:   1.5;
+  --leading-relaxed:  1.625;
+  --leading-loose:    1.8;
+
+  /* ── Letter Spacing ──────────────────────────────────────────── */
+  --tracking-label:   0.12em;  /* Uppercase section labels */
+  --tracking-tight:   -0.02em; /* Large display headings */
+  --tracking-cta:     0.05em;  /* Button text */
+
+  /* ── Spacing Scale ───────────────────────────────────────────── */
+  --space-1:    4px;
+  --space-2:    8px;
+  --space-3:    12px;
+  --space-4:    16px;
+  --space-5:    20px;
+  --space-6:    24px;
+  --space-8:    32px;
+  --space-10:   40px;
+  --space-12:   48px;
+  --space-16:   64px;
+  --space-20:   80px;
+  --space-24:   96px;
+  --space-32:   128px;
+
+  /* ── Border Radius ───────────────────────────────────────────── */
+  --radius-sm:    4px;
+  --radius-md:    8px;
+  --radius-lg:    12px;
+  --radius-xl:    16px;
+  --radius-pill:  9999px;
+
+  /* ── Shadows ─────────────────────────────────────────────────── */
+  --shadow-sm:    0 1px 4px rgba(0,0,0,0.06);
+  --shadow-md:    0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg:    0 8px 32px rgba(0,0,0,0.10);
+  --shadow-card:  0 2px 8px rgba(44,74,103,0.08);
+  --shadow-card-hover: 0 8px 28px rgba(44,74,103,0.14);
+
+  /* ── Transitions ─────────────────────────────────────────────── */
+  --transition-fast:    150ms ease;
+  --transition-base:    200ms ease;
+  --transition-slow:    300ms ease;
+
+  /* ── Z-Index Scale ───────────────────────────────────────────── */
+  --z-base:     0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+
+  /* ── Layout ──────────────────────────────────────────────────── */
+  --max-width-content: 900px;
+  --max-width-wide:    1200px;
+  --header-height:     80px;
+  --header-height-sticky: 60px;
+}
+
+/* ── Global Base Styles ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-body);
+  background-color: var(--bg-page);
+}
+
+/* ── Semantic Typography ─────────────────────────────────────────── */
+h1 {
+  font-family: var(--font-serif);
+  font-size: var(--text-h1);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.5px;
+  color: var(--color-text-heading);
+  text-wrap: pretty;
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-size: var(--text-h2);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.25px;
+  color: var(--color-text-heading);
+  text-wrap: pretty;
+}
+
+h3 {
+  font-family: var(--font-serif);
+  font-size: var(--text-h3);
+  font-weight: 400;
+  line-height: var(--leading-snug);
+  color: var(--color-text-heading);
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-size: var(--text-h4);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-text-heading);
+}
+
+p {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-body);
+  text-wrap: pretty;
+}
+
+.editorial {
+  font-family: var(--font-serif);
+  font-size: var(--text-editorial);
+  line-height: 1.6;
+  color: var(--color-text-heading);
+}
+
+.pull-quote {
+  font-family: var(--font-serif);
+  font-size: var(--text-pull-quote);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--brand-primary);
+}
+
+/* Section label (uppercase eyebrow above H2) */
+/* Orange is permitted here — sparing, small, uppercase — this is an approved use */
+.section-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-2);
+}
+
+.section-label--primary {
+  color: var(--brand-secondary);
+}
+
+.section-label--inverse {
+  color: rgba(255,255,255,0.70);
+  letter-spacing: var(--tracking-label);
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-cta);
+  font-weight: 700;
+  letter-spacing: var(--tracking-cta);
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: background var(--transition-base), color var(--transition-base),
+              border-color var(--transition-base), transform var(--transition-base),
+              box-shadow var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn:active { transform: scale(0.98); }
+
+/* Primary — Steel Blue fill (orange removed from primary CTA) */
+.btn-primary {
+  background: var(--brand-primary);
+  color: #fff;
+  border-color: var(--brand-primary);
+}
+.btn-primary:hover {
+  background: var(--brand-primary-dark);
+  border-color: var(--brand-primary-dark);
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(44,74,103,0.30);
+}
+
+/* Primary Accent — burnt orange, USE SPARINGLY (one CTA per section max) */
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.btn-accent:hover {
+  background: var(--accent-bright);
+  border-color: var(--accent-bright);
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(209,116,0,0.25);
+}
+
+/* Secondary — steel blue outlined */
+.btn-secondary {
+  background: transparent;
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+.btn-secondary:hover {
+  background: var(--brand-primary);
+  color: #fff;
+}
+
+/* Ghost — white outlined (for use on dark/image sections) */
+.btn-ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,0.50);
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.80);
+}
+
+/* Verify Insurance — teal outlined (on light bg) */
+.btn-outline-accent {
+  background: transparent;
+  color: var(--brand-secondary);
+  border-color: var(--brand-secondary);
+}
+.btn-outline-accent:hover {
+  background: var(--brand-secondary);
+  color: #fff;
+}
+
+/* ── Overlay Treatments — Near-Black Cinematic System ───────────── */
+/* ALL image overlays use the near-black cinematic family below.      */
+/* Orange overlays have been retired. See --accent notes above.       */
+
+/* HERO: Directional sweep — primary hero sections */
+.overlay-hero,
+.overlay-cinematic-hero {
+  background: linear-gradient(
+    105deg,
+    rgba(24,26,33,0.92) 0%,
+    rgba(24,26,33,0.78) 35%,
+    rgba(24,26,33,0.30) 65%,
+    rgba(24,26,33,0.05) 100%
+  );
+}
+
+/* BOTTOM FADE: Cards, program tiles, team photos */
+.overlay-cinematic-bottom {
+  background: linear-gradient(
+    to top,
+    rgba(24,26,33,0.90) 0%,
+    rgba(24,26,33,0.55) 45%,
+    rgba(24,26,33,0.08) 100%
+  );
+}
+
+/* CENTER / FULL: Testimonial full-bleed, centered text sections */
+.overlay-cinematic-center {
+  background: rgba(24,26,33,0.68);
+}
+
+/* SUBTLE: Section tint, decorative background wash */
+.overlay-cinematic-subtle {
+  background: rgba(24,26,33,0.38);
+}
+
+/* BLUE SPLIT: Text-left / image-right split layouts */
+.overlay-blue {
+  background: linear-gradient(
+    to right,
+    rgba(44,74,103,0.90) 0%,
+    rgba(44,74,103,0.40) 60%,
+    transparent 100%
+  );
+}
+
+/* DEPRECATED — kept for backwards compat only, do not use in new work */
+.overlay-orange { background: rgba(24,26,33,0.68); /* replaced with cinematic-center */ }
+.overlay-warm   { background: rgba(24,26,33,0.38); /* replaced with cinematic-subtle */ }
+
+/* ── Hero Accent Bar — 4px orange rule (approved sparing use) ───── */
+/* This is an intentional, contained use of orange — do not increase size */
+.hero-accent-bar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #D17400, #E17100);
+  z-index: 3;
+}
+
+/* ── Cards ───────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+/* ── Mobile Responsive Typography ───────────────────────────────── */
+@media (max-width: 768px) {
+  h1 { font-size: var(--text-h1-mobile); }
+  h2 { font-size: var(--text-h2-mobile); }
+  h3 { font-size: var(--text-h3-mobile); }
+  h4 { font-size: var(--text-h4-mobile); }
+  .editorial { font-size: 20px; }
+  .pull-quote { font-size: 22px; }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
