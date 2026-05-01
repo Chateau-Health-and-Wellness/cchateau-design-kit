@@ -8,6 +8,16 @@
 
 ---
 
+## ⚠ How to use this kit (read first)
+
+Before touching anything else, read these three rules:
+
+1. **Orange is a brand mark, not a color.** Treat `#D17400` the way you'd treat a logo — it appears as a *micro-accent* in 1–2 small spots per viewport, never as a fill, button, overlay, or sidebar. The full canonical rule (Approved + Forbidden uses) lives in the `--accent` comment block in [`colors_and_type.css`](colors_and_type.css). If anything in this README ever conflicts with that block, the CSS wins.
+2. **Cinematic-overlay sections are for highlights only** — H1, short subhead, 1–2 CTAs. Long explainer copy goes in white-space sections. Don't fill an overlay with paragraphs of body text; it kills the cinematic feel.
+3. **Accessibility is enforced, not aspirational.** All buttons clear 44×44px touch targets. All interactive elements have visible focus outlines. Orange (`#D17400`) is 3.22:1 vs white — only AA-safe for large bold uppercase text (≥14px Arial Bold ALL CAPS); never use for body copy or long button labels. See the [Accessibility](#accessibility) section.
+
+---
+
 ## Sources
 
 | Resource | Path / Link | Notes |
@@ -80,9 +90,9 @@
 
 | Attribute | Value |
 |-----------|-------|
-| Primary Color | `#2C4A67` Deep Steel Blue |
+| Primary Color | `#2C4A67` Deep Steel Blue (primary CTAs, structural) |
 | Secondary Color | `#50717A` Muted Teal |
-| **KEY ACCENT** | **`#D17400` Burnt Orange** |
+| Brand-mark Accent | `#D17400` Burnt Orange — **micro-accent only** (see Color System) |
 | Heading Font | EB Garamond (Google Fonts, serif) |
 | Body Font | Arial (system sans-serif) |
 | Tone | Warm, clinical, exclusive, nature-connected |
@@ -145,23 +155,55 @@
 ## VISUAL FOUNDATIONS
 
 ### Color System
+
+> **Source of truth:** the `--accent` comment block in [`colors_and_type.css`](colors_and_type.css). This section summarizes; the CSS is authoritative.
+
 **Primary Palette:**
-- `#2C4A67` — Deep Steel Blue: navigation, footer, structural elements, dark section backgrounds
-- `#50717A` — Muted Teal: icon containers, secondary buttons, tag backgrounds, hover depth
+- `#2C4A67` — Deep Steel Blue: navigation, footer, structural elements, dark section backgrounds, primary CTAs on light bg
+- `#50717A` — Muted Teal: icon containers, secondary buttons, tag backgrounds, hover depth, eyebrow labels (alternative)
 - `#354B51` — Dark Teal: hover states on secondary elements
 
-**The Accent:**
-- `#D17400` — Burnt Orange: THE defining visual element. Appears as: primary CTAs, eyebrow labels, accent bars (4px), underline accents, hover highlights, stat counter labels. Every page has at least one prominent burnt orange element above the fold.
-- `#E17100` — Bright Orange: hover/active variant
+**The Accent — Burnt Orange (brand mark only):**
+- `#D17400` — Burnt Orange (`--accent`)
+- `#E17100` — Bright Orange (`--accent-bright`) — hover variant for inline links and dots only
 
-**Neutral Warmth:** The neutral system has warm undertones (not cool gray). Background is `#FAFAF9` — close to white but with warmth. Cards use `#FEFBF6` (warm cream). Sections alternate with `#F8F6F3` (warm off-white).
+**Approved orange uses (the only ones):**
+
+| # | Use | Spec | Notes |
+|---|-----|------|-------|
+| 1 | Page-top brand rule | 3px full-width gradient, top edge of page (Nav top) | **Max 1 per page** |
+| 2 | Rule above a hero-level title | ~32×3px gradient (`.h1-accent-rule`) directly above an H1 in cinematic-overlay heroes, OR the title of a cinematic / full-bleed mini-hero banner card (Variant 4 scrim) | **Hero-level only** — never above ordinary H2/H3/H4 in white-space sections, and never above titles in non-cinematic card variants (Variants 1–3) |
+| 3 | Eyebrow / section labels | Arial Bold, ALL CAPS, **≥14px**, 0.12em tracking | Light backgrounds only — use white on cinematic dark |
+| 4 | Inline text links | `var(--accent)` color inside body copy | Within paragraph text |
+| 5 | Decorative dots | ≤5px circles | Rare — small trust-signal markers |
+
+**Forbidden orange uses (explicit):**
+
+- ✕ Orange-filled buttons — `.btn-accent` is **retired**
+- ✕ Orange-stroked CTAs on white — `.cta-orange-outline` is **retired**
+- ✕ Orange decorative bars next to typography samples or body content
+- ✕ Orange 4px section-top bar (use Approved #1 page-top rule + Approved #2 above-H1 rule instead)
+- ✕ Orange eyebrow / label text *inside* cinematic dark overlays — use white or `rgba(255,255,255,0.7)`
+- ✕ Orange overlays, fills, large blocks, backgrounds (use the cinematic near-black family instead)
+- ✕ Orange for body text, running copy, or long button labels (fails WCAG AA at 3.22:1 for normal-weight text)
+- ✕ Orange left-border accents on quote/info blocks (use `--brand-secondary` teal or `--neutral-300` instead)
+
+**Frequency rule:** Orange should be visible in 1–2 *small* spots per viewport at most. If you can count three orange elements on screen, one is wrong.
+
+**Worked example — homepage hero:**
+- Nav: 3px page-top brand rule (Approved #1)
+- Hero: cinematic near-black overlay; eyebrow label in white (`rgba(255,255,255,0.7)`); small ~32×3px orange rule directly above H1 (Approved #2); H1 in white serif; subhead in white sans; primary CTA in steel-blue editorial style (`#3B5A66`); secondary CTA as ghost outline. Trust dots may use Approved #5.
+- That's *one and a half* orange spots in the entire above-the-fold view: the page-top rule (visible) plus the small above-H1 rule. Nothing else.
+
+**Neutral Warmth:** The neutral system has warm undertones (not cool gray). Default page background is now `#FFFFFF` (warm tones removed in current token set — see CSS). Sections alternate with `#FFFFFF`. `--neutral-500` (`#9295A1`) is **3:1 vs white — restricted to metadata, disabled states, and non-essential labels only**. Never use it for primary or supporting body copy.
 
 ### Typography
 - **Headings:** EB Garamond (serif). Always 400 weight for H1–H3; 500 for H4 if using serif. Creates the editorial, premium magazine feel. Used for: all headlines, editorial body sections, pull quotes.
 - **Body / UI:** Arial (system sans). All body copy, nav items, buttons, form labels, cards, captions. Workhorse font — kept purposely plain to let the serif headings breathe.
-- **Section Labels:** Arial Bold, 14px, 0.12em letter-spacing, ALL CAPS, burnt orange. Always appear above H2s.
-- **Pull Quotes:** EB Garamond Italic, 28px, burnt orange color.
-- **Editorial Body:** EB Garamond 24px, for About sections, mission statements, long-form narrative.
+- **Section Labels:** Arial Bold, **14px** (do not reduce — required for AA contrast), 0.12em letter-spacing, ALL CAPS. **Burnt orange on light backgrounds only**; on cinematic dark overlays use white (`rgba(255,255,255,0.7)`). Always appear above H2s.
+- **Pull Quotes:** EB Garamond Italic, 28px, **steel blue** (`var(--brand-primary)`) — orange retired here for AA compliance on long italic text.
+- **Editorial Body:** EB Garamond 24px, for About sections, mission statements, long-form narrative. Use italic *only for short pull quotes* — never for long stretches (hurts readability).
+- **Don't mix many EB Garamond weights on one page.** 400 for headings, 400 italic for pull quotes, 500 for select H4 — that's the working set. Adding more weights muddies the editorial feel.
 
 ### Photography & Imagery
 **Subject:** Facility interiors (the "chateau" brand — residential, warm, non-clinical), Wasatch mountain landscapes, contemplative adults 30–55.
@@ -175,12 +217,15 @@
 - Art on walls (black-framed, landscape photography)
 - Natural materials: stone tile floors, wood counters, iron fixtures
 
-**Overlay Treatments:**
-1. **Hero (Option D — selected by client):** Near-black cinematic gradient left→right `rgba(24,26,33,0.92)→transparent`. Plus 4px burnt orange accent bar at top. Text left-aligned in white.
-2. **Inner CTAs / FR Spotlight:** Burnt orange + steel blue gradient `rgba(209,116,0,0.65)→rgba(44,74,103,0.80)`. Creates a warm, action-focused feeling.
+**Overlay Treatments (all near-black cinematic — orange overlays retired):**
+1. **Hero (Option D — selected by client):** Near-black cinematic gradient left→right `rgba(24,26,33,0.92)→transparent`. **No section-top bar.** A small ~32×3px orange rule (`.h1-accent-rule`) sits directly above the H1; eyebrow label in white. Text left-aligned in white.
+2. **Inner / FR Spotlight:** Near-black cinematic + steel-blue gradient (`rgba(18,22,32,0.94)→rgba(27,38,58,0.15)`). Eyebrow in white, H2 in white serif. **No orange overlay** (deprecated).
 3. **Split Sections:** Steel blue horizontal fade, text on left, image reveals right.
-4. **Warm Wash:** 8% orange tint via `background-blend-mode: multiply`. Adds warmth to testimonial/stat sections.
-5. **Duotone (sparingly):** Steel blue monochrome. Team hover states, decorative elements.
+4. **Center / Testimonial:** Uniform near-black scrim (`rgba(18,22,32,0.78–0.88)`); centered title + body + ghost CTAs.
+5. **Subtle / Section Tint:** Near-black at low opacity (`rgba(24,26,33,0.38)`). Replaces the prior orange "warm wash."
+6. **Duotone (sparingly):** Steel blue monochrome. Team hover states, decorative elements.
+
+**Cinematic content rule:** These overlay sections are reserved for *highlights* — H1 + short subhead + 1–2 CTAs. Long-form / explainer copy goes on white-space sections. Filling an overlay with paragraphs of body text undermines the cinematic feel and creates contrast / readability problems.
 
 **Photography rules:** No stock clichés, no clinical imagery, no minors, no crisis/distress. Adults appear contemplative, purposeful, or quietly hopeful — never suffering or celebrating dramatically.
 
@@ -201,7 +246,7 @@
 ### Borders & Radius
 - Cards: `border-radius: 8px`
 - Buttons: `border-radius: 9999px` (pill shape — defined style)
-- Left-border accents on quote/info blocks: `4px solid #D17400`
+- Left-border accents on quote/info blocks: `4px solid var(--brand-secondary)` (teal) or `var(--neutral-300)` — **orange left-borders retired** (was an extra orange spot we don't need)
 - Divider lines: `--neutral-300` (`#C2C5D0`)
 - NO heavy border treatments — borders are used only as subtle structural hints
 
@@ -222,21 +267,78 @@
 - **Max animation duration:** 1200ms. Respects `prefers-reduced-motion`.
 
 ### Hover & Press States
-- **Primary CTA:** `#D17400` → `#E17100` + `scale(1.02)` + orange glow shadow
+- **Primary CTA on light bg:** `var(--brand-primary)` (`#2C4A67`) → `var(--brand-primary-dark)` (`#1e3349`) + `scale(1.02)` + steel-blue glow shadow. (Orange-glow CTAs retired.)
+- **Primary CTA on dark bg:** `.btn-on-dark` white fill → `#f3f4f6` + `scale(1.02)`. Steel-blue-on-dark fails contrast — do not use.
 - **Cards:** `translateY(-4px)` + deeper box-shadow
-- **Nav items:** 3px burnt orange left-border slides in (150ms)
+- **Nav items:** 3px brand-primary or accent left-border slides in (150ms) — accent only if eyebrow-style emphasis is wanted, otherwise primary
 - **Team photos:** `scale(1.05)` + slight darken overlay
 - **Text links:** Underline slides in from left (200ms)
 - **Press/active:** All interactive elements `scale(0.98)`
+- **Focus-visible (keyboard):** `2px solid var(--brand-primary)` outline with `2px` offset, white outline on dark/cinematic backgrounds. Required for WCAG 2.4.7 — never remove.
 
 ### UI Patterns to Avoid
 - Carousel/slider hero sections
 - Auto-playing video backgrounds
 - Entry pop-up modals
-- Wall-of-text sections
+- Wall-of-text sections (especially over cinematic overlays — see overlay content rule above)
 - Generic blue gradients
-- Pure white backgrounds (always use `#FAFAF9`)
 - Dark/cold/moody color schemes
+- Orange-tinted overlays (use the cinematic near-black family)
+- Orange decorative bars next to typography or running text
+
+---
+
+## Accessibility
+
+These rules are enforced, not optional. Designs that don't meet them shouldn't ship.
+
+### Color Contrast (WCAG 2.1 AA)
+
+| Token | Hex | Ratio vs white | Approved use |
+|-------|-----|----------------|--------------|
+| `--neutral-900` | `#303442` | ~12:1 | Headings, primary body |
+| `--neutral-700` | `#626571` | ~5.8:1 | Body copy |
+| `--neutral-500` | `#9295A1` | **~3:1 (fails AA for body)** | Metadata, disabled, non-essential labels only |
+| `--accent` | `#D17400` | **~3.22:1 (large-text only)** | ≥14px Arial Bold ALL CAPS or ≥18px text — never body or long button labels |
+| `--brand-primary` | `#2C4A67` | ~9.2:1 | CTAs on light bg, structural |
+
+**Buttons on dark backgrounds:** Steel-blue-on-dark-blue is ~1.4:1 — fails. Use `.btn-on-dark` (white fill) for primary CTAs on Nav/Footer dark contexts. Use `.btn-ghost` (white outline) on cinematic image backgrounds.
+
+### Touch Targets (WCAG 2.5.5)
+All interactive elements clear **44×44 px** minimum. The `.btn` default (14px vertical padding + 16px font line-height + 2px border = 46px) is safe. Never reduce padding to fit a layout — relayout instead.
+
+### Focus Indicators (WCAG 2.4.7)
+Every interactive element shows a visible keyboard focus outline. The CSS sets `:focus-visible` globally to `2px solid var(--brand-primary)` with `2px` offset (white on dark). Never `outline: none` without an equivalent visible replacement.
+
+### Typography Spacing
+- Body line-height ≥ **1.5** (kit uses 1.625)
+- Heading line-height ~ **1.2** (1.15–1.25)
+- Paragraph spacing ~ **1em** between paragraphs
+- List-item spacing ~ **0.5em** between items
+
+### Reduced Motion
+The CSS already respects `prefers-reduced-motion: reduce`. Do not add new animations that bypass this guard.
+
+---
+
+## Photography
+
+- **Color temperature:** Keep the library consistent — warm, golden, natural light. Avoid mixing cool/blue-tinted photos with warm/cognac-tinted photos in the same set.
+- **Subject:** Facility interiors (lodge-feel, not clinical), Wasatch landscapes, contemplative adults 30–55. No stock clichés, no clinical imagery, no minors, no crisis/distress.
+- **Overlay rule:** Any photo carrying overlaid text gets the near-black cinematic scrim — orange tints are retired. The scrim must keep text contrast ≥ 4.5:1 (≥ 3:1 for ≥18px or ≥14px bold).
+- **Alt text:** Informational photos describe the scene meaningfully. Decorative-only photos (background flourishes) get `alt=""`. Never autogenerate filenames as alt text.
+
+---
+
+## Cards
+
+- **One concept per card.** Don't pack multiple programs or unrelated info into a single tile.
+- **One primary action per card.** If the whole card is clickable, also expose a visible focusable control (link or button) for screen readers.
+- **Excerpts ≤ ~100 characters.** Long descriptions belong on detail pages, not card faces.
+- **Hierarchy:** Title (largest), description (mid), CTA / arrow (clear visual affordance).
+- **Cards on dark backgrounds:** Add a subtle outline or shadow to keep the click affordance legible.
+- **Mobile:** Grids collapse to a single column. Don't squeeze 4 columns into a phone width — reflow.
+- **Card titles get no orange decorative rule** — that's reserved for H1 only (see Color System).
 
 ---
 

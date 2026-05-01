@@ -6,17 +6,20 @@ function SiteHero({ navigate }) {
       {/* Background image */}
       <div style={{ position: 'absolute', inset: 0, background: "url('../../assets/facility-commons.webp') center/cover no-repeat" }}></div>
 
-      {/* 4px burnt orange accent bar */}
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: 'linear-gradient(90deg, #D17400, #E17100)', zIndex: 3 }}></div>
+      {/* Section-top orange bar RETIRED. Page-top brand rule lives in Nav.jsx;
+          the small orange rule below sits directly above the H1 only. */}
 
       {/* Near-black cinematic overlay */}
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(105deg, rgba(24,26,33,0.92) 0%, rgba(24,26,33,0.78) 35%, rgba(24,26,33,0.30) 65%, rgba(24,26,33,0.05) 100%)', zIndex: 1 }}></div>
 
       {/* Content */}
       <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%', padding: '0 80px', paddingTop: 80, maxWidth: 860 }}>
-        <span style={{ display: 'block', fontFamily: 'Arial,sans-serif', fontSize: 13, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#E17100', marginBottom: 16 }}>
+        {/* Eyebrow on cinematic dark — must be white, NOT orange (canonical rule) */}
+        <span style={{ display: 'block', fontFamily: 'Arial,sans-serif', fontSize: 14, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: 16 }}>
           Chateau Health &amp; Wellness · Oakley, Utah
         </span>
+        {/* APPROVED orange use #2 — small rule directly above H1 only */}
+        <span aria-hidden="true" style={{ display: 'block', width: 32, height: 3, background: 'linear-gradient(90deg, #D17400, #E17100)', borderRadius: 2, marginBottom: 12 }}></span>
         <h1 style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: 58, fontWeight: 400, color: '#fff', lineHeight: 1.15, letterSpacing: '-0.5px', marginBottom: 20, maxWidth: 720 }}>
           Where first responders and professionals reclaim their lives
         </h1>

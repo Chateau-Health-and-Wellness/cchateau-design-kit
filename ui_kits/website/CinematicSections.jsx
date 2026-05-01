@@ -62,8 +62,8 @@ function CinematicSplit({ img, eyebrow, title, bullets, cta, onCta, flip = false
 
   return (
     <section style={{ position:'relative', display:'flex', flexDirection: flip ? 'row-reverse' : 'row', minHeight:520, overflow:'hidden', background:'#12141A' }}>
-      {/* 4px accent bar — approved sparing use */}
-      <div style={{ position:'absolute', top:0, left:0, right:0, height:4, background:'linear-gradient(90deg,#D17400,#E17100)', zIndex:3 }}></div>
+      {/* Section-top orange bar RETIRED. Cinematic sections carry an H2,
+          and orange decorative rules are reserved for H1 only. */}
       {textSide}
       {photoSide}
     </section>

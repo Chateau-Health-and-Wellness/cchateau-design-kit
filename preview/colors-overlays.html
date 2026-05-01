@@ -16,11 +16,14 @@
   .tile-xl { height: 200px; }
   .tile-lg { height: 160px; }
   .tile-sm { height: 110px; }
-  /* Hero accent bar */
-  .hero-bar { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg,#D17400,#E17100); z-index: 2; }
+  /* Section-top hero bar RETIRED. Orange now appears as a small rule
+     directly above the H1 only (.h1-rule below). */
   /* Demo text */
   .hero-text { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; color: #fff; line-height: 1.2; margin-bottom: 5px; }
-  .hero-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #E17100; margin-bottom: 6px; }
+  /* Eyebrow on cinematic dark background — must be white, NOT orange */
+  .hero-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 6px; }
+  /* Small orange rule above H1 only — the only heading-level orange decoration */
+  .h1-rule { display: block; width: 32px; height: 3px; background: linear-gradient(90deg,#D17400,#E17100); border-radius: 2px; margin-bottom: 6px; }
   /* Divider */
   .rule { height: 1px; background: rgba(255,255,255,0.08); margin: 8px 0 12px; }
   /* Deprecated badge */
@@ -38,9 +41,9 @@
   <!-- Hero: directional sweep -->
   <div class="tile tile-xl" style="flex:1.7;">
     <div class="bg"></div>
-    <div class="hero-bar"></div>
     <div class="ov overlay-cinematic-hero" style="justify-content:center; padding: 20px 22px;">
       <div class="hero-eyebrow">Chateau Health &amp; Wellness</div>
+      <span class="h1-rule" aria-hidden="true"></span>
       <div class="hero-text">Where first responders<br>reclaim their lives</div>
       <div style="margin-top:10px;display:flex;gap:8px;">
         <div style="background:#2C4A67;color:#fff;border-radius:9999px;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;">Get Help Now</div>

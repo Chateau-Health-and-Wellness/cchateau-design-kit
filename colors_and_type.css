@@ -93,21 +93,54 @@
   --brand-secondary:      #50717A;   /* Muted Teal/Slate — icons, secondary UI */
   --brand-secondary-dark: #354B51;   /* Dark Teal — hover states on secondary */
 
-  /* ── Accent — Burnt Orange (SPARING USE ONLY) ─────────────────── */
-  /* Use only for: 4px accent bar, eyebrow/section labels, inline text links */
-  /* Do NOT use for: buttons, overlays, large fills */
-  --accent:           #D17400;              /* Burnt orange — sparing accent only */
-  --accent-bright:    #E17100;              /* Hover variant — sparing accent only */
-  --accent-10:        rgba(209,116,0,0.10); /* Subtle tinted backgrounds (use minimally) */
-  --accent-25:        rgba(209,116,0,0.25); /* DEPRECATED — use cinematic overlay instead */
-  --accent-60:        rgba(209,116,0,0.60); /* DEPRECATED — use cinematic overlay instead */
-  --accent-85:        rgba(209,116,0,0.85); /* DEPRECATED — use cinematic overlay instead */
+  /* ══════════════════════════════════════════════════════════════════
+   * ACCENT — BURNT ORANGE
+   * THIS COMMENT BLOCK IS THE CANONICAL RULE FOR ORANGE USAGE.
+   * Both project READMEs reference it. If it changes, update them.
+   * ──────────────────────────────────────────────────────────────────
+   * Orange is a BRAND MARK, not a color. Treat it like a logo:
+   * appears in 1–2 small spots per viewport, never as fill or block.
+   *
+   * APPROVED uses (the only ones):
+   *   1. ONE 3–4px horizontal brand rule at the very top of the page
+   *      (e.g., Nav top edge). MAX one per page.
+   *   2. ONE short horizontal rule (~3px × 32px) placed DIRECTLY ABOVE
+   *      a hero-level title — H1 in cinematic-overlay heroes, OR the
+   *      title of a cinematic / full-bleed banner card (the "mini-hero"
+   *      Variant 4 scrim treatment). NEVER above ordinary H2/H3/H4 in
+   *      white-space sections, and NEVER above titles in non-cinematic
+   *      card variants (Variants 1–3).
+   *      See `.h1-accent-rule` utility below.
+   *   3. Eyebrow / section labels: Arial Bold, ALL CAPS, ≥14px,
+   *      0.12em tracking. Qualifies as "large text" for AA contrast
+   *      (orange is 3.22:1 vs white — only AA-safe at this size+weight).
+   *      See `.section-label` rule below.
+   *   4. Inline text links inside body copy.
+   *   5. Subtle decorative dots ≤5px (rare).
+   *
+   * FORBIDDEN uses:
+   *   ✕ No orange-filled buttons (`.btn-accent` is retired).
+   *   ✕ No orange-stroked CTAs on white (`.cta-orange-outline` retired).
+   *   ✕ No orange decorative bars next to typography samples or body text.
+   *   ✕ No orange 4px section-top bar (page-top brand rule + above-H1
+   *     rule are the only horizontal-orange treatments).
+   *   ✕ No orange eyebrow/label text INSIDE cinematic dark overlays —
+   *     use white or rgba(255,255,255,0.7) there.
+   *   ✕ No orange overlays, fills, large blocks, or backgrounds.
+   *   ✕ No orange for body copy, running text, or long button labels
+   *     (fails WCAG AA at 3.22:1 for normal-weight text).
+   *   ✕ No orange left-border accents on quote/info blocks
+   *     (use --brand-secondary teal or --neutral-300 instead).
+   * ══════════════════════════════════════════════════════════════════ */
+  --accent:           #D17400;              /* Burnt orange — brand mark only */
+  --accent-bright:    #E17100;              /* Hover variant for inline links/dots */
+  --accent-10:        rgba(209,116,0,0.10); /* Subtle tint — minimal use only */
 
   /* ── Neutral System ──────────────────────────────────────────── */
   --neutral-950:  #181A21;   /* Near-black — footer backgrounds */
   --neutral-900:  #303442;   /* Heading text (H1–H4) */
   --neutral-700:  #626571;   /* Body copy */
-  --neutral-500:  #9295A1;   /* Tertiary text, metadata */
+  --neutral-500:  #9295A1;   /* 3:1 vs white — METADATA / DISABLED ONLY (fails AA for body) */
   --neutral-300:  #C2C5D0;   /* Borders, dividers */
   --neutral-teal-300: #C2CFD3; /* Soft teal-tinted light gray */
   --neutral-teal-500: #69797D; /* Mid teal-gray */
@@ -320,12 +353,13 @@ p {
   color: var(--brand-primary);
 }
 
-/* Section label (uppercase eyebrow above H2) */
-/* Orange is permitted here — sparing, small, uppercase — this is an approved use */
+/* Section label (uppercase eyebrow above H2) — APPROVED orange use #3.
+   Must stay 14px Bold ALL CAPS to clear AA contrast (large-text 3:1).
+   On dark/cinematic backgrounds use .section-label--inverse, NOT this. */
 .section-label {
   display: block;
   font-family: var(--font-sans);
-  font-size: var(--text-label);
+  font-size: var(--text-label);   /* 14px — do not reduce */
   font-weight: 700;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
@@ -337,9 +371,22 @@ p {
   color: var(--brand-secondary);
 }
 
+/* USE THIS for eyebrow labels inside cinematic dark overlays —
+   never use orange .section-label on dark backgrounds. */
 .section-label--inverse {
   color: rgba(255,255,255,0.70);
   letter-spacing: var(--tracking-label);
+}
+
+/* APPROVED orange use #2 — small horizontal rule placed DIRECTLY ABOVE an H1
+   in cinematic-overlay heroes. H1 only. Never H2/H3/H4. Never section-top. */
+.h1-accent-rule {
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+  margin: 0 0 var(--space-3) 0;
+  border-radius: 2px;
 }
 
 /* ── Buttons ─────────────────────────────────────────────────────── */
@@ -379,20 +426,12 @@ p {
   box-shadow: 0 4px 16px rgba(44,74,103,0.30);
 }
 
-/* Primary Accent — burnt orange, USE SPARINGLY (one CTA per section max) */
-.btn-accent {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
-}
-.btn-accent:hover {
-  background: var(--accent-bright);
-  border-color: var(--accent-bright);
-  transform: scale(1.02);
-  box-shadow: 0 4px 16px rgba(209,116,0,0.25);
-}
+/* .btn-accent (orange-filled CTA) is RETIRED. Do not reintroduce.
+   See --accent canonical comment block. Use .btn-primary (steel blue) for
+   primary CTAs on light bg, .btn-on-dark (white fill) for primary CTAs on
+   dark bg, .btn-ghost (white outline) for cinematic image backgrounds. */
 
-/* Secondary — steel blue outlined */
+/* Secondary — steel blue outlined (light bg) */
 .btn-secondary {
   background: transparent;
   color: var(--brand-primary);
@@ -403,7 +442,20 @@ p {
   color: #fff;
 }
 
-/* Ghost — white outlined (for use on dark/image sections) */
+/* On Dark — white fill, dark text, no border. Primary CTA on dark surfaces
+   (Nav, Footer). Replaces steel-blue-on-dark which fails contrast. */
+.btn-on-dark {
+  background: #fff;
+  color: var(--brand-primary);
+  border-color: #fff;
+}
+.btn-on-dark:hover {
+  background: #f3f4f6;
+  border-color: #f3f4f6;
+  transform: scale(1.02);
+}
+
+/* Ghost — white outlined (for use on dark/image cinematic sections) */
 .btn-ghost {
   background: transparent;
   color: #fff;
@@ -424,6 +476,12 @@ p {
   background: var(--brand-secondary);
   color: #fff;
 }
+
+/* Touch target — every button must clear 44×44px minimum (WCAG 2.5.5).
+   The 14px padding + 16px line-height + 2px border = 46px. Verified safe. */
+
+/* Focus-visible — keyboard accessibility (WCAG 2.4.7). Applied to all
+   interactive elements via :focus-visible at the bottom of this file. */
 
 /* ── Overlay Treatments — Near-Black Cinematic System ───────────── */
 /* ALL image overlays use the near-black cinematic family below.      */
@@ -471,20 +529,22 @@ p {
   );
 }
 
-/* DEPRECATED — kept for backwards compat only, do not use in new work */
-.overlay-orange { background: rgba(24,26,33,0.68); /* replaced with cinematic-center */ }
-.overlay-warm   { background: rgba(24,26,33,0.38); /* replaced with cinematic-subtle */ }
+/* .overlay-orange and .overlay-warm are RETIRED. Use the cinematic family
+   above. See --accent canonical comment block. */
 
-/* ── Hero Accent Bar — 4px orange rule (approved sparing use) ───── */
-/* This is an intentional, contained use of orange — do not increase size */
-.hero-accent-bar::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #D17400, #E17100);
-  z-index: 3;
+/* APPROVED orange use #1 — page-top brand rule. ONE per page maximum.
+   Lives at the very top edge of the page (Nav top), NOT at the top of
+   individual sections. Heroes, FR Spotlights, etc. do NOT get their own
+   section-top bar; the small above-H1 rule (.h1-accent-rule) goes there. */
+.brand-rule-top {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
 }
+
+/* .hero-accent-bar (the old 4px section-top bar) is RETIRED. Heroes use
+   .h1-accent-rule placed directly above the H1 instead. */
 
 /* ── Cards ───────────────────────────────────────────────────────── */
 .card {
@@ -506,6 +566,26 @@ p {
   h4 { font-size: var(--text-h4-mobile); }
   .editorial { font-size: 20px; }
   .pull-quote { font-size: 22px; }
+}
+
+/* ── Focus Visible — WCAG 2.4.7 ──────────────────────────────────── */
+/* All interactive elements receive a visible keyboard focus indicator. */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+/* On dark / cinematic backgrounds, swap to white for visibility */
+.on-dark a:focus-visible,
+.on-dark button:focus-visible,
+.on-dark .btn:focus-visible {
+  outline-color: #fff;
 }
 
 /* ── Reduced Motion ──────────────────────────────────────────────── */

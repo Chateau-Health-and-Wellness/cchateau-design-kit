@@ -191,8 +191,7 @@
   /* ── Variant 1: Overlay — ~50% image + dark gradient behind text ── */
   /* Image layer is dimmed to ~0.55 opacity; a directional dark gradient
      reinforces the text side. Heading white, body near-white.
-     A short orange rule introduces the heading (approved sparing use).
-     CTA is a white-fill pill with orange stroke. */
+     CTA is an editorial ghost pill (matches Variant 4). */
   .banner-card--overlay { justify-content: flex-end; }
   .banner-card--overlay .banner-card__img {
     position: absolute; inset: 0;
@@ -214,35 +213,11 @@
   }
   .banner-card--overlay .banner-card__title { color: #FFFFFF; }
   .banner-card--overlay .banner-card__desc { color: rgba(255,255,255,0.90); max-width: 520px; }
-  /* Short orange accent rule above heading — 4px tall per token rules */
-  .banner-card--overlay .banner-card__rule {
-    display: block;
-    width: 48px; height: 4px;
-    background: var(--accent);
-    border-radius: 2px;
-    margin-bottom: 2px;
-  }
-  /* White-fill CTA with orange stroke — variant-specific */
-  .banner-card--overlay .cta-orange-outline {
-    display: inline-flex; align-items: center; gap: 8px;
-    align-self: flex-start;
-    font-family: var(--font-serif);
-    font-style: italic; font-weight: 400; font-size: 16px;
-    letter-spacing: 0.01em;
-    padding: 12px 26px;
-    border-radius: 9999px;
-    background: #FFFFFF;
-    color: var(--accent);
-    border: 2px solid var(--accent);
-    text-decoration: none;
-    transition: background var(--transition-base), color var(--transition-base), transform var(--transition-base);
-    white-space: nowrap;
-  }
-  .banner-card--overlay .cta-orange-outline:hover {
-    background: var(--accent);
-    color: #FFFFFF;
-    transform: translateY(-1px);
-  }
+  /* Decorative rule above the card heading is RETIRED.
+     Orange decorative rules are reserved for H1 only (.h1-accent-rule).
+     Card titles (H3) get no decorative bar. */
+  /* .cta-orange-outline (orange-stroked white CTA) is RETIRED. Use
+     .cta-editorial--ghost (matches Variant 4) for cinematic-overlay cards. */
 
   /* ── Variant 2: Split-layout — image left, white text panel right ── */
   .banner-card--split { display: grid; grid-template-columns: 5fr 7fr; }
@@ -279,6 +254,16 @@
   .banner-card--framed .banner-card__desc { color: var(--neutral-900); max-width: 620px; }
 
   /* ── Variant 4: Scrim — full-bleed image + solid dark scrim behind text ── */
+  /* Variant 4 is a mini-hero card; per the canonical rule it gets the small
+     above-title orange rule (the same treatment as a cinematic-overlay H1). */
+  .banner-card--scrim .banner-card__rule {
+    display: block;
+    width: 32px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+    border-radius: 2px;
+    margin: 0 0 10px 0;
+  }
   .banner-card--scrim { justify-content: flex-end; }
   .banner-card--scrim .banner-card__img {
     position: absolute; inset: 0;
@@ -514,10 +499,9 @@
       <article class="banner-card banner-card--overlay">
         <div class="banner-card__img" style="background-image:url('../assets/facility-outdoor.webp');"></div>
         <div class="banner-card__content">
-          <span class="banner-card__rule" aria-hidden="true"></span>
           <h3 class="banner-card__title">Trauma and PTSD</h3>
           <p class="banner-card__desc">Specialized treatment for unresolved trauma, PTSD, and nervous system dysregulation that continues to affect daily life, relationships, and emotional stability.</p>
-          <a class="cta-orange-outline">Learn More &raquo;</a>
+          <a class="cta-editorial cta-editorial--ghost">Learn More &raquo;</a>
         </div>
       </article>
       <p class="variant-rationale"><strong>Solves:</strong> preserves a full-bleed cinematic feel while guaranteeing legibility. Image opacity dropped to 55% and layered under a 0.85→0.20 directional gradient that stays at ≥0.55 through the entire text zone, so white serif heading clears <strong>~13:1</strong> and body copy (rgba-white 0.90) clears <strong>~9.5:1</strong> — comfortably above WCAG AA 4.5:1.</p>
@@ -531,7 +515,7 @@
         <div class="banner-card__content">
           <h3 class="banner-card__title">Trauma and PTSD</h3>
           <p class="banner-card__desc">Specialized treatment for unresolved trauma, PTSD, and nervous system dysregulation that continues to affect daily life, relationships, and emotional stability.</p>
-          <a class="link-editorial" style="color:var(--accent);font-size:17px;">Learn how we help with Trauma and PTSD</a>
+          <a class="link-editorial" style="color:var(--accent);font-size:17px;font-style:italic;">Learn how we help with Trauma and PTSD</a>
         </div>
       </article>
       <p class="variant-rationale"><strong>Solves:</strong> zero contrast compromise — image is displayed at full opacity on its own side, text panel is pure white. Body copy on white ≈ <strong>12.6:1</strong>, heading ≈ <strong>9.7:1</strong>. Best when the image is an environmental/hero shot worth preserving faithfully.</p>
@@ -545,7 +529,7 @@
         <div class="banner-card__content">
           <h3 class="banner-card__title">Trauma and PTSD</h3>
           <p class="banner-card__desc">Specialized treatment for unresolved trauma, PTSD, and nervous system dysregulation that continues to affect daily life, relationships, and emotional stability.</p>
-          <a class="link-editorial" style="color:var(--accent);font-size:17px;">Learn how we help with Trauma and PTSD</a>
+          <a class="link-editorial" style="color:var(--accent);font-size:17px;font-style:italic;">Learn how we help with Trauma and PTSD</a>
         </div>
       </article>
       <p class="variant-rationale"><strong>Solves:</strong> editorial, calm presentation — image is contained in an inset rounded frame so text never crosses pixels. Same contrast as Variant 2 (≈12.6:1 body, ≈9.7:1 heading) with a more "card-within-card" feel. Best for program-directory lists with many banners in sequence.</p>
@@ -558,12 +542,13 @@
         <div class="banner-card__img" style="background-image:url('../assets/facility-outdoor.webp');"></div>
         <div class="banner-card__scrim"></div>
         <div class="banner-card__content">
+          <span class="banner-card__rule" aria-hidden="true"></span>
           <h3 class="banner-card__title">Trauma and PTSD</h3>
           <p class="banner-card__desc">Specialized treatment for unresolved trauma, PTSD, and nervous system dysregulation that continues to affect daily life, relationships, and emotional stability.</p>
           <a class="cta-editorial cta-editorial--ghost">Learn More &raquo;</a>
         </div>
       </article>
-      <p class="variant-rationale"><strong>Solves:</strong> maximum cinematic impact — image renders at 100% opacity and a one-sided dark scrim (0.05 → 0.85 black) sits behind text only. The text zone sits on ≥0.82 black so no underlying image detail bleeds through. White heading clears <strong>~17:1</strong>; body copy (white 0.88) clears <strong>~12.5:1</strong>. Editorial serif-italic ghost CTA replaces the prior burnt-orange pill.</p>
+      <p class="variant-rationale"><strong>Solves:</strong> maximum cinematic impact — image renders at 100% opacity and a one-sided dark scrim (0.05 → 0.85 black) sits behind text only. The text zone sits on ≥0.82 black so no underlying image detail bleeds through. White heading clears <strong>~17:1</strong>; body copy (white 0.88) clears <strong>~12.5:1</strong>. Editorial serif-italic ghost CTA — orange-stroked CTAs have been retired (see <code>--accent</code> rule).</p>
     </div>
   </div>
 

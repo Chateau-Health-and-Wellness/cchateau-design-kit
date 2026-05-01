@@ -12,7 +12,7 @@ function SitePrograms({ navigate }) {
   return (
     <section style={{ background: 'var(--bg-page)', padding: '80px 40px' }} data-screen-label="04 Programs">
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-        <span style={{ display:'block', fontFamily:'Arial,sans-serif', fontSize:13, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--accent)', marginBottom:8 }}>OUR PROGRAMS</span>
+        <span style={{ display:'block', fontFamily:'Arial,sans-serif', fontSize:14, fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', color:'var(--accent)', marginBottom:8 }}>OUR PROGRAMS</span>
         <h2 style={{ fontFamily:"'EB Garamond', serif", fontSize:36, fontWeight:400, color:'var(--neutral-900)', lineHeight:1.25 }}>Comprehensive treatment programs</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22, marginTop: 40 }}>
           {programs.map(p => (
